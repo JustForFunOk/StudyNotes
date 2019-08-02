@@ -221,6 +221,29 @@ html语法
 
 ## **特殊符号**
 
+### 段首空格、多个空格
+
+``` markdown
+helloworld
+&nbsp;helloworld
+helloworld
+&ensp;helloworld
+你好
+&emsp;你好
+```
+helloworld  
+&nbsp;helloworld  
+helloworld  
+&ensp;helloworld  
+你好  
+&emsp;你好
+
+其中nbsp(non-breaking space)
+
+### 回车
+
+使用键盘依次打出`空格`+`空格`+`回车`这三个键。
+
 ### 方括号[ ]
 如二维数组`int a[3][10]`就不能正常显示，遇到这种特殊符号可以在符号前加`\`变成转义字符就能显示原字符。
 
