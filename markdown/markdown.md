@@ -159,10 +159,10 @@ html语法
 
 #### 图片缩放
 
-使用了HTML代码，将图片缩小一半。
+使用了HTML代码，将图片缩小一半，居中。
 
 ``` html
-<img src="<image-url>" width = "50%" height = "50%" alt="图片名称">
+<img src="<image-url>" width = "50%" height = "50%" algin = center alt="图片名称">
 ```
 
 #### 视频
