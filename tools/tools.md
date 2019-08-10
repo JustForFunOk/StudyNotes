@@ -41,8 +41,9 @@
 ## 手机和电脑互联 - [AirDroid](https://www.airdroid.com/zh-cn/)
 
 * 支持Android, iOS, Windows, Mac OS X, Airdroid Web  
-* 手机投屏到电脑？  
-* 苹果手机和电脑文件互传？
+* 手机投屏到电脑？只支持安卓  
+* 苹果手机和电脑文件互传？不能传输苹果手机里的动态图片
+* 总结：苹果手机上没啥用
 
 ## 热榜资讯 - [今日热榜](https://tophub.today/)
 
@@ -57,3 +58,9 @@
 
 * 设计、效率工具等  
 * 待探索
+
+## 百度网盘不限速 - [BND](https://github.com/b3log/baidu-netdisk-downloaderx)  
+
+* 不要高频率使用，账号可能会被限速  
+* BND1支持Win, Linux, Mac  
+* BND2不支持Linux
