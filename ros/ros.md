@@ -41,10 +41,12 @@ ROS提供了类似于操作系统的功能（硬件抽象、底层设备控制�
     可以直观的列出指定文件夹下所有文件的**结构层次**
     ``` bash
     # 安装
-    sudo apt-get install tree
+    $ sudo apt-get install tree
     # 使用说明
-    tree --help
+    $ tree --help
     # 常用命令
+    # 显示1级目录
+    $ tree -L 1 <floder_name>  # -L level Descend only level directories deep.
     ```
 
 

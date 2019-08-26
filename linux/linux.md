@@ -1,5 +1,23 @@
 # Linux
 
+## ubutnu必备软件
+
+* 中文输入法--[谷歌拼音](https://blog.csdn.net/lybhit/article/details/78663731)
+    ``` bash
+    1. 安装汉语语言包
+    $ sudo apt-get install language-pack-zh-hans
+    2. 安装谷歌拼音输入法
+    $ sudo apt-get installfcitx-googlepinyin
+    3. 输入方式切换为fcitx
+    SystemSettings --> Language Support--> Lauguage --> Keyboard input method system中选择fcitx，重启或注销，重新进入。
+    4. 配置输入法
+    $ fcitx-configtool
+    配置界面左下角，选择+号添加输入方法，选择Google Pinyin即可。
+    ```
+    中文简体和繁体之间的切换，桌面右上角点开谷歌拼音，点击`Traditional Chinese`即可切换到`Simplified Chinese`。
+
+* 
+
 ## 计算机硬件
 
 * 进制  
