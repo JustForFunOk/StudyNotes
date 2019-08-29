@@ -117,13 +117,17 @@ $ ssh-keygen -p
 
 # 多个远程仓库共用一个SSH密钥
 
-更简单的方法如下,一台电脑一个SSH密钥,多个所有账户共用一个密钥,用户名的配置只和git有关,和SSH无关
+更简单的方法如下,一台电脑一个SSH密钥,多个所有账户共用一个密钥,用户名的配置只和git有关,和SSH无关。
 1. 本地生成密钥
     ``` bash
     $ ssh-keygen
     ```
 2. 将公钥添加到远程仓库的账户中
-3. 在对应的工程下设置局部user信息
+3. 在对应的目录下设置对应的局部user信息
+    ``` bash
+    $ git config user.email "you@example.com"
+    $ git config user.name "Your Name"
+    ```
 
 # 本地仓库首次托管到远程仓库
 
@@ -131,3 +135,10 @@ $ ssh-keygen -p
 git remote add origin git@github.com:JustForFunOk/StudyNotes.git
 git push -u origin master
 ```
+
+# 远程仓库强制覆盖本地仓库
+
+``` bash
+$ git fetch --all && git reset --hard origin/master && git pull
+```
+

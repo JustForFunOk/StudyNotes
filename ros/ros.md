@@ -82,6 +82,17 @@ $ echo $ROS_PACKAGE_PATH  # 检查ROS包路径，添加成功则输出：/home/<
 &emsp;&emsp;&emsp;&emsp;|—`packagen` 
 
 
+## 编译catkin_make
+
+* 只编译某个package　
+    ``` bash
+    # catkin_make已过时？
+    catkin_make -DCATKIN_WHITELIST_PACKAGES="package1;package2"
+    # 使用catkin build
+    catkin build <package_name1> <package_name2>
+    ```
+
+
 ## package
 
 ROS软件的基本组织形式  
