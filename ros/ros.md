@@ -82,9 +82,10 @@ $ echo $ROS_PACKAGE_PATH  # 检查ROS包路径，添加成功则输出：/home/<
 &emsp;&emsp;&emsp;&emsp;|—`packagen` 
 
 
-## 编译catkin_make
+## 编译catkin
 
-* 只编译某个package　
+* 只编译某个package  
+  使用`catkin build`代替`catkin_make`，[原因在这](https://robotics.stackexchange.com/questions/16604/ros-catkin-make-vs-catkin-build)。
     ``` bash
     # catkin_make已过时？
     catkin_make -DCATKIN_WHITELIST_PACKAGES="package1;package2"
@@ -190,7 +191,11 @@ $ catkin_make
 
 ### Message
 
+#### std_msgs
 常用的msg类型包括： 
+
+
+#### 自定义msgs
 
 使用自定义的msg格式时，在`/msg`文件夹中新建`<msg_name>.msg`文件。  
 通过`catkin_make`编译后，会生成`~/catkin_wa/devel/include/<package_name>/<msg_name>.h`头文件。  
@@ -247,3 +252,20 @@ int main(int argc, char** argv){
     创建句柄，实例化node。句柄可以理解为一个把手，其提供了操作node的很多方法。 
 
 }
+
+
+## rosbag
+
+### rosbag播放工具--[webviz](https://webviz.io/)  
+
+* 拖拽`.bag`文件即可播放
+* 可调整layout，可导入导出layout文件
+* 可使用html技术隐藏前端部件，如时间戳，`style=“display:none”`
+
+### *.bag.active恢复
+
+`rosbag record <topic>`会保存成`.bag.active`为后缀的文件，需要恢复成`.bag`文件才能播放。
+``` bash
+$ rosbag reindex *.bag.active
+$ rosbag fix *.bag.active repaired.bag
+```
