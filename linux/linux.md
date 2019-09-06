@@ -105,3 +105,33 @@ $ sudo usermod -aG dialout $USER
 # [可选]检查
 $ groups $USER
 ```
+### 多个USB设备的管理
+
+插入主机的USB设备会按照顺序在`/dev`下分配索引，这样无法固定。下面操作可以将索引与USB口关联起来，无论设备何时插入该USB口，该设备必会分配到固定的索引。
+
+https://blog.csdn.net/weixin_38717571/article/details/83045040
+
+
+ACTION=="add",KERNELS=="1-2:1.0",SUBSYSTEMS=="usb",MODE:="0777",SYMLINK+="name"
+
+ls /sys/class/tty/ttyUSB* -l
+
+
+## 通过SSH传输文件
+
+1. 网线互联。一个开无线wifi热点，另一个连接？没有测试过
+2. 将网段设置为同一网段，并ping通测试。
+3. 通过ssh和远程主机建立连接。
+    ``` bash
+    # -X 打开X11图像界面
+    $ ssh -X <远程主机user>@<远程主机ip地址>
+    ``` 
+4. 复制文件
+   ``` bash
+   # scp - secure copy (remote file copy program)
+   # 更多内容参见 man scp
+   # 将本地文件copy到远程主机
+   $ scp <本地文件或文件夹路径> <远程主机user>@<远程主机ip地址>：<远程主机要放置文件的路径>
+   # 除此之外，还可以在两台主机之间copy文件，从远程主机1拷贝到远程主机2
+   $ scp <远程主机1的user>@<远程主机1的ip地址>：<远程主机1中要copy文件的路径> <远程主机2的user>@<远程主机2的ip地址>：<远程主机2中欲放置文件的路径>
+   ```
