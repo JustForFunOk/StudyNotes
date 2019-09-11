@@ -2,7 +2,7 @@
 
 ## [C++](cxx/cxx.md)
 
-## [CMake](cmake)
+## [CMake](cmake/cmake.md)
 
 ## [English]()
 

@@ -139,6 +139,6 @@ git push -u origin master
 # 远程仓库强制覆盖本地仓库
 
 ``` bash
-$ git fetch --all && git reset --hard origin/master && git pull
+$ git fetch --all && git reset --hard origin/<master> && git pull
 ```
 
