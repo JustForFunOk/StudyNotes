@@ -8,6 +8,8 @@
 
 ## [Git](git/git.md)
 
+## [Hardware](hardware/hardware.md)
+
 ## [Linux](linux/linux.md)
 
 ## [MarkDown](markdown/markdown.md)

@@ -25,6 +25,9 @@
     $ tree -L 1 <floder_name>  # -L level Descend only level directories deep.
     ```
 
+## 安装
+* 一键安装脚本
+
 ## ROS简介
 * ROS包含的四大模块
 * 为什么要用ROS？
@@ -91,7 +94,7 @@
 2. 显示某个msg的内部结构
     ``` bash
     $ rosmsg show <msg_name>
-    ```
+创建新的package并编译  ```
 
 
 ### 代码模板
