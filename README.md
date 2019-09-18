@@ -10,13 +10,15 @@
 
 ## [Hardware](hardware/hardware.md)
 
+## [Html](html/html.md)
+
 ## [Linux](linux/linux.md)
 
 ## [MarkDown](markdown/markdown.md)
 
 ## [OpenCV](opencv/opencv.md)
 
-## [Python]()
+## [Python](python/python.md)
 
 ## [ROS](ros/ros.md)
 
