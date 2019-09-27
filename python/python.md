@@ -28,3 +28,10 @@ b = round(a, 2)
 print b
 ```
 b即为3.14
+
+## ubuntu安装python包
+
+``` shell
+$ sudo apt-get install python-pip
+$ sudo pip install <python-package>
+```

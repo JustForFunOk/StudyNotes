@@ -21,6 +21,7 @@
 ## [Python](python/python.md)
 
 ## [ROS](ros/ros.md)
+![ROS Logo](images/ros_logo.png)
 
 ## [超赞工具](tools/tools.md)
 

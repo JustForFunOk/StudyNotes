@@ -22,24 +22,32 @@ $ cd ~/catkin_ws
 [1/2]$ catkin build
 [2/2]$ catkin_make
 ```
-其中，关于编译的两种方式，尽量使用`catkin build`代替`catkin_make`，[原因在这](https://robotics.stackexchange.com/questions/16604/ros-catkin-make-vs-catkin-build)。
-
+其中，关于编译的两种方式，尽量使用`catkin build`代替`catkin_make`，[原因在这](https://robotics.stackexchange.com/questions/16604/ros-catkin-make-vs-catkin-build)。  
+要使用`catkin build`需要安装`sudo apt-get install python-catkin-tools`
 
 ## package目录结构
 
 `package`  
-&emsp;&emsp;|—`CMakeLists.txt` 规定catkin编译的规则（源文件、依赖项、目标文件）  
-&emsp;&emsp;|—`package.xml` 定义package的属性（包名、版本号、作者、依赖等）  
-&emsp;&emsp;|—`scripts` *.py *.sh源文件  
-&emsp;&emsp;|—`src` *.cpp源文件  
-&emsp;&emsp;|—`include` *.h源文件   
-&emsp;&emsp;|—`msg` *.msg通信格式  
-&emsp;&emsp;|—`srv` *.srv通信格式  
-&emsp;&emsp;|—`action` *.action通信格式  
-&emsp;&emsp;|—`config` *.yaml配置文件  
-&emsp;&emsp;|—`launch` *.launch启动文件  
+&emsp;&emsp;├──`CMakeLists.txt` 规定catkin编译的规则（源文件、依赖项、目标文件）  
+&emsp;&emsp;├──`package.xml` 定义package的属性（包名、版本号、作者、依赖等）  
+&emsp;&emsp;├──`scripts` *.py *.sh源文件  
+&emsp;&emsp;├──`src` *.cpp源文件  
+&emsp;&emsp;├──`include` *.h源文件   
+&emsp;&emsp;├──`msg` *.msg通信格式  
+&emsp;&emsp;├──`srv` *.srv通信格式  
+&emsp;&emsp;├──`action` *.action通信格式  
+&emsp;&emsp;├──`config` *.yaml配置文件  
+&emsp;&emsp;└──`launch` *.launch启动文件  
 
 其中，前两个文件构成package最小构成单元。
+
+`catkin_create_pkg`命令创建新的package时会生成如下目录结构  
+├── CMakeLists.txt  
+├── include  
+│&emsp;&emsp;└── <package_name>  
+├── package.xml  
+└── src  
+后续根据需求新建其他文件夹及文件。
 
 
 ## 常用指令

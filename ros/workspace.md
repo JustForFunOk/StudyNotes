@@ -18,12 +18,12 @@ $ echo $ROS_PACKAGE_PATH  # 检查ROS包路径，添加成功则输出：/home/<
 ## 工作空间目录结构
 
 `catkin_ws` 工作空间  
-&emsp;&emsp;|—`build` 存放cmake和catkin缓存和中间文件  
-&emsp;&emsp;|—`devel` 存放目标文件(头文件、可执行文件、动、静态链接库)  
-&emsp;&emsp;|—`src` 存放源文件  
-&emsp;&emsp;&emsp;&emsp;|—`package1` 每个[package的目录结构](#package目录结构)     
-&emsp;&emsp;&emsp;&emsp;|—`package2`  
-&emsp;&emsp;&emsp;&emsp;|—`folder_name` 因为catkin**会在src目录下递归的查找每一个package**  
-&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;|—`package3` 所以可以将package放置在子文件夹下  
-&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;|—`package4`  
-&emsp;&emsp;&emsp;&emsp;|—`packagen` 
+&emsp;&emsp;├──`build` 存放cmake和catkin缓存和中间文件  
+&emsp;&emsp;├──`devel` 存放目标文件(头文件、可执行文件、动、静态链接库)  
+&emsp;&emsp;└──`src` 存放源文件  
+&emsp;&emsp;&emsp;&emsp;├──`package1` 每个[package的目录结构](#package目录结构)     
+&emsp;&emsp;&emsp;&emsp;├──`package2`  
+&emsp;&emsp;&emsp;&emsp;├──`folder_name` 因为catkin**会在src目录下递归的查找每一个package**  
+&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;├──`package3` 所以可以将package放置在子文件夹下  
+&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;└──`package4`  
+&emsp;&emsp;&emsp;&emsp;└──`package#` 
