@@ -1,5 +1,11 @@
 # Git
 
+## 资料
+1. [Git FAQ](https://git.wiki.kernel.org/index.php/Git_FAQ)  
+   上面有很多经典问题，可以过一遍
+
+
+
 > 本地仓库
 
 - [初次使用](#初次使用)
@@ -131,6 +137,8 @@ $ ssh-keygen -p
 
 # 本地仓库首次托管到远程仓库
 
+
+
 ``` bash
 git remote add origin git@github.com:JustForFunOk/StudyNotes.git
 git push -u origin master
@@ -142,3 +150,39 @@ git push -u origin master
 $ git fetch --all && git reset --hard origin/<master> && git pull
 ```
 
+# git status
+
+## 查看被忽略的文件
+> --ignored  
+> Show ignored files as well.
+
+.gitignore中设置忽略文件后，可以通过下述命令验证结果
+``` bash
+git status --ignored
+```
+
+# git push
+
+> -u, --set-upstream  
+    For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull(1) and other commands.
+
+本地分支推送到远端develop
+
+``` bash
+git push origin HEAD:develop
+```
+
+其中，origin指要远程仓库，HEAD指本地当前所在分支的最新状态，develop是远端分支名
+
+## git 管理空文件夹
+
+场景：文件夹下的文件是程序生成的文件，不需要加入版本管理，但是程序写的不鲁棒，不能自动创建文件夹，需要该文件夹存在。
+
+理论上来将是不行的，因为git管理的是文件，如果该文件夹下没有文件，则不会加入管理。  
+因此解决方法：
+1. 改善程序，能自动生成该目录
+2. 在该文件夹下添加一个隐藏文件`.gitignore`，这样就能加入版本管理了
+
+### 参考
+1. [How can I add an empty directory to a Git repository?](https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
+2. [Git FAQ](https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F)

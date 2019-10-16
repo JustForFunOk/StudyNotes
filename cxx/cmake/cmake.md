@@ -1,4 +1,0 @@
-# CMake
-
-## find_package
-

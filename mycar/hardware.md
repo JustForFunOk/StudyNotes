@@ -26,3 +26,13 @@
 +5V ：主要为硬盘、光驱辅助供电、以及为USB移动设备、键鼠等供电。
 
 +3.3V：主要为内存、AMD主板、以及Intel X38及更老主板供电。
+
+
+
+## 显示屏
+
+目标：10.1寸 可触摸 HDMI接口
+
+ [LVDS低电压差分信号](https://baike.baidu.com/item/LVDS%E4%BF%A1%E5%8F%B7)（Low-Voltage Differential Signaling，LVDS）
+
+液晶显示器驱动板输出的数字信号中，除了包括RGB数据信号外，还包括行同步、场同步、像素时钟等信号，其中像素时钟信号的最高频率可超过28MHz。

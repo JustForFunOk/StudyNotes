@@ -1,8 +1,34 @@
 # ROS中CMakeLists.txt详解
 
+## 简介
 [官方文档](http://wiki.ros.org/catkin/CMakeLists.txt)
 
-以下为使用`catkin_create_pkg testcmakelists roscpp rospy std_msgs`命令创建package时，`CMakeLists.txt`初始状态。
+`catkin`使用的`CMakeLists.txt`是在标准的`CMake`使用的`CMakeLists.txt`上进行了扩展。所以不要使用`cmake`来编译ROS中的工程。
+
+## 注意
+
+在新建package时会自动生成`CMakeLists.txt`，不能修改其中的顺序，只需要在我们需要的地方进行修改即可。*（Your CMakeLists.txt file MUST follow this format otherwise your packages will not build correctly. The order in the configuration DOES count.）*
+
+正确的配置顺序如下：
+
+1. CMake版本Required CMake Version (cmake_minimum_required)
+2. Package Name (project())
+3. Find other CMake/Catkin packages needed for build (find_package())
+4. Enable Python module support (catkin_python_setup())
+5. Message/Service/Action Generators (add_message_files(), add_service_files(), add_action_files())
+6. Invoke message/service/action generation (generate_messages())
+7. Specify package build info export (catkin_package())
+8. Libraries/Executables to build (add_library()/add_executable()/target_link_libraries())
+9. Tests to build (catkin_add_gtest())
+10. Install rules (install())
+
+## 示例
+
+以下为使用
+``` shell
+catkin_create_pkg testcmakelists roscpp rospy std_msgs
+```
+命令创建package时，`CMakeLists.txt`初始状态。
 
 
 ``` CMakeLists
@@ -30,6 +56,18 @@ find_package(catkin REQUIRED COMPONENTS
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 # catkin_python_setup()
 
+```
+* cmake_minimum_required(VERSION 2.8.3)  
+  CmakeLists.txt文件的第一句，不可少
+* project(testcmakelists)  
+  指定工程名称，这里指定的名称会决定？？的名称
+* add_compile_options(-std=c++11)
+* find_package()  
+  指定  
+  ROS中至少有find_package(catkin REQUIRED)
+
+  
+``` CMakeLists
 ################################################
 ## Declare ROS messages, services and actions ##
 ################################################

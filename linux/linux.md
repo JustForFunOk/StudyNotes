@@ -121,3 +121,22 @@ chmod a-x <file_name>  # 所有人均不可执行，其余权限保持不变
 ## 获取电脑硬件状态
 获取CPU，Memory，MotherBoard等硬件的占用率，温度等。  
 Python开源库：[psutil](https://github.com/giampaolo/psutil)
+
+## 常见单词来源
+
+|单词|来源|含义|举例|
+|:---:|:---:|:---:|:---:|
+|l|list|列举|ls -l|
+|man|manual|手册|man which|
+
+
+## 判断某个软件有没有被安装
+
+Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpkg安装的软件分别被各自独立管理。
+
+1. apt方法安装的软件
+   apt-cache policy firefox
+2. 
+
+
+[How can I find out if a specific program is installed? [duplicate]](https://askubuntu.com/questions/87415/how-can-i-find-out-if-a-specific-program-is-installed)
