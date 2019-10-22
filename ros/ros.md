@@ -177,7 +177,8 @@ $ catkin_make
 
 ### Message
 
-常用的msg类型包括： 
+std_msg包括以下种类，使用std_msg时无需自定义msg  
+
 
 使用自定义的msg格式时，在`/msg`文件夹中新建`<msg_name>.msg`文件。  
 通过`catkin_make`编译后，会生成`~/catkin_wa/devel/include/<package_name>/<msg_name>.h`头文件。  
