@@ -221,6 +221,15 @@ html语法
 
 ## **特殊符号**
 
+## Latex
+
+markdown支持latex，所以可以使用latex来表达公式
+
+* 度数  
+  $45^{\circ}$ --> `$45^{\circ}$`
+* 乘号  
+  $\times$ --> `$\times$`
+
 ### 段首空格、多个空格
 
 ``` markdown
