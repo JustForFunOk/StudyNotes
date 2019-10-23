@@ -18,83 +18,6 @@
 
 * 
 
-## 计算机硬件
-
-* 进制  
-数据容量使用二进制，1GB=1024x1024x1024B  
-速度单位使用十进制，1GHz=1000x1000x1000Hz
-
-* 网络  
-网络中使用位(bit)为单位，常说的20M带宽，其单位为`Mbit/s`，而我们下载时显示的速度以数据容量衡量，其单位为字节(Byte)，所以20M带宽,其理论最大传输速度为2.5MB/s。  
-
-* 主板  
-主板上的芯片组**早期**通常分为两个网桥来控制各组件通信：  
-    * 北桥  
-    负责连接速度较快的CPU、内存与显卡等组件  
-    * 南桥  
-    负责连接速度较慢的设备接口，包括硬盘、USB设备、网卡等  
-    
-    由于北桥最重要的就是CPU与内存之间的桥接，所以目前主流架构中，**大多将北桥的内存控制器整合到了CPU当中**。
-
-* CPU  
-以i7-8700为例：  
-处理器内核数：6核心  
-处理器线程数：12线程(超线程技术Hyper-Threading)  
-处理器基础频率：3.2GHz  
-字长：CPU每次能够处理的数据量，我们所说的32位或64位，主要是依据CPU解析的字长而来的。  
-
-
-
-* 内存条  
-内存条主要组件为动态随机存取内存(Dynamic Random Access Memory,DRAM)  
-以DDR4 3000 8G为例，,DDR4中DDR是指双倍数据传输速度(Double Data Rate,DDR)，内存条的带宽=频率x位宽=3000MHzx64bit=3000MHzx8Byte=24GB/s  
-多通道，如主板支持双通道，两条内存条可使位宽达到128bit  
-
-* 二级缓存  
-二级缓存(L2 Cache)属于静态随机存取内存(Static Random Access Memory,SRAM)。  
-因为要整合到CPU内部，L2内存的速度要和CPU频率相同，DRAM无法达到这个速度，而SRAM在设计中使用的晶体管数量较多，价格较高，且不易做成大容量。  
-
-* 显卡  
-
-
-* 硬盘  
-以硬盘的SATA3.0接口为例，其支持最大带宽6Gbit/s，则最大传输速度=6/(8+2)=600MB/s，8表示8位数据位，2表示2位校验位。  
-以移动硬盘USB接口为例，USB2.0仅有60MB/s的理论传输速率，USB3.0可达500MB/s，USB3.1可达1000MB/s。  
-但机械硬盘由于其物理组成的限制，一般极限速度在150MB/s～200MB/s之间。所以对于移动机械硬盘只需USB3.0即可，而移动固态硬盘就支持USB3.1。
-
-
-
-## 权限
-
-### 文件权限
-
-文件基本权限有9个：`-rwxrwxrwx`  
-`-` 类型为文件，其他类型:`l`为链接，`c`为，  
-`r` = read 读  
-`w` = write 写  
-`x` = execute 执行  
-从左向右`rwx`依次为拥有者(owner)、所属群组(group)、其他人(others)三种身份
-
-#### 修改文件权限
-
-`chmod` = **ch**ange **mod**e  
-
-``` bash
-## 数字类型修改文件权限 ##
-chmod 777 <file_name>  # 将文件权限修改为，所有人，可读可写可执行
-# r:4 w:2 x:1
-# 777表示[4+2+1][4+2+1][4+2+1]，其余类推
-
-## 符号类型修改文件权限 ##
-chmod u=rwx,g=rwx,o=r <file_name>  # 用户和组用户成员，可读可写可执行,其他人只可读
-chmod a+x <file_name>  # 为文件添加所有人可执行权限，其余权限保持不变
-chmod a-x <file_name>  # 所有人均不可执行，其余权限保持不变
-# 用户: u = user, g = group, o = other, a = all
-# 权限: +添加权限 -移除权限 =设置权限
-```
-数字类型方法：直接修改为目标权限，不管文件之前的权限。  
-符号类型方法：修改某些权限，而其余权限保持不变。
-
 ## 设备
 
 
@@ -126,8 +49,10 @@ Python开源库：[psutil](https://github.com/giampaolo/psutil)
 
 |单词|来源|含义|举例|
 |:---:|:---:|:---:|:---:|
-|l|list|列举|ls -l|
-|man|manual|手册|man which|
+|l|**l**ong|长列表|ls -**l** ~|
+|ls|**l**i**s**t|列清单|ls ~|
+|man|**man**ual|手册|man which|
+|stat|**stat**us|状态|stat filename|
 
 
 ## 判断某个软件有没有被安装
@@ -140,3 +65,20 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 
 
 [How can I find out if a specific program is installed? [duplicate]](https://askubuntu.com/questions/87415/how-can-i-find-out-if-a-specific-program-is-installed)
+
+## Ubuntu工具
+
+### /bin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|date|Display the current time in the given FORMAT, or set the system date.|date +%Y%m%d%H%M%S|`date`命令在sh脚本中很有用|
+
+
+
+### /usr/bin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|stat|Display file or file system status.|stat filename|
+|touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|

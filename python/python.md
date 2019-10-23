@@ -269,7 +269,12 @@ a,b = func()  # 多返回值
 if __name__ == "__main__":
     # xxx
 ```
+## 文件开头
 
+``` python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+```
 
 ## 获取字符串中的指定一段
 

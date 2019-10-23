@@ -1,5 +1,11 @@
 # CMake
 
+## 功能
+
+* 将所有的warning变成error
+  [How to set warning level in CMake?](https://stackoverflow.com/questions/2368811/how-to-set-warning-level-in-cmake/50882216#50882216)
+
+
 ## find_package
 
 `find_package`能够自动配置第三方库的头文件以及链接文件路径。
@@ -89,3 +95,7 @@
 ## target_complie_definitions
 
 在CMakeLists.txt中添加宏，使得.cpp中能够进行宏编译
+
+
+## add_compile_options
+

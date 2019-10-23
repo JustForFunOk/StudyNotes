@@ -186,3 +186,22 @@ git push origin HEAD:develop
 ### 参考
 1. [How can I add an empty directory to a Git repository?](https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
 2. [Git FAQ](https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F)
+
+## git ahead of
+
+``` bash
+$ git status
+On branch develop
+Your branch is ahead of 'origin/develop' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+```
+本地代码已经push，没有做任何修改，为什么会ahead of ?  
+
+因为你push之后没有更新远端状态，执行`git pull --rebase`操作后，将远端情况更新到本地就没问题了。
+``` bash
+On branch develop
+Your branch is up-to-date with 'origin/develop'.
+nothing to commit, working directory clean
+```
+
