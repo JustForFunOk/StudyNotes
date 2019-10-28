@@ -7,10 +7,12 @@ a list of special words and explanations of their meanings, often at the end of 
 
 ## Tips
 
-* ●●● core vocabulary: High-frequency
+* ●●● core vocabulary: High-frequency  
+  ●●○ core vocabulary: Medium-frequency  
   ●○○ core vocabulary: Low-frequency
 * `S3` Top 3000 spoken words
 * `W2` Top 2000 written words  
+* `AWL` Academic Word List
 
 
 ## A
@@ -48,6 +50,13 @@ licence (British English), license (American English)
 
 ## M
 
+### manual
+
+man‧u‧al /ˈmænjuəl/ ●●○ `AWL` noun [countable] 手册  
+a book that gives instructions about how to do something, especially how to use a machine
+
+* General Commands Manual
+  
 ## N
 
 ## O
@@ -57,6 +66,14 @@ licence (British English), license (American English)
 ## Q
 
 ## R
+
+### repository
+
+re‧pos‧i‧to‧ry /rɪˈpɒzətəri $ rɪˈpɑːzətɔːri/ noun (plural repositories) [countable] 资料库  
+a place or container in which large quantities of something are stored
+
+* You can clone an existing Git repository from elsewhere. 
+
 
 ## S
 

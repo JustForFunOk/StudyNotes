@@ -20,18 +20,31 @@
 
 ## 设备
 
+* [USB](./dev_usb.md)  
+  * 权限
+  * 多个USB管理 
 
 
 ## 通过SSH传输文件
 
 1. 网线互联。一个开无线wifi热点，另一个连接？没有测试过
 2. 将网段设置为同一网段，并ping通测试。
-3. 通过ssh和远程主机建立连接。
+3. [第一次使用] 被控制方准备好环境    
     ``` bash
+    # 被控制方要安装openssh-server,默认没有安装
+    $ sudo apt-get install openssh-server
+    # 查看状态
+    $ sudo service ssh status
+    # 若未启动，可启动
+    $ sudo service ssh start
+    ```
+4. 通过ssh和远程主机建立连接。
+    ``` bash
+    # 控制方需要ssh工具，默认已安装在/usr/bin目录下
     # -X 打开X11图像界面
     $ ssh -X <远程主机user>@<远程主机ip地址>
     ``` 
-4. 复制文件
+5. 复制文件
    ``` bash
    # scp - secure copy (remote file copy program)
    # 更多内容参见 man scp
@@ -68,6 +81,8 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 
 ## Ubuntu工具
 
+这些工具还可以在写shell脚本时进行调用，实现自动化
+
 ### /bin
 
 |命令|功能|举例|备注|
@@ -80,5 +95,27 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 
 |命令|功能|举例|备注|
 |:--:|:--:|:--:|:--:|
+|diff|Compare FILES line by line.|diff ./a.txt ./b.txt|类似git diff </br> 相同返回0 不同返回1|
+|find|search for files in a directory hierarchy|find -name <file_name>|比`ll -R`好用，支持正则|
 |stat|Display file or file system status.|stat filename|
 |touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|
+
+### /usr/sbin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|service|run a System V init script|sudo service ssh start|更接近操作系统底层的命令？|
+|usermod|modify a user account|sudo usermod -aG dialout $USER||
+
+
+
+## 创建自己的bash命令
+
+如cd之后经常会接ls，将这两步结合成一步cdls
+
+``` bash
+cdls() { cd "$@" && ls; }
+```
+
+[How can I create an alias for cd and ls?](https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls)  
+[Make cd automatically ls](https://unix.stackexchange.com/questions/20396/make-cd-automatically-ls)

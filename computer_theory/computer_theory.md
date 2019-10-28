@@ -7,3 +7,8 @@
 
 
  [Are std::vector elements contiguous in physical memory?](https://stackoverflow.com/questions/18540935/are-stdvector-elements-contiguous-in-physical-memory)
+
+
+ ### 程序储存区域
+
+ Linux使用`readelf`命令查看可执行文件的内部结构，如`readelf ./a.out`

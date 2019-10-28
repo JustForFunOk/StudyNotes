@@ -205,3 +205,13 @@ Your branch is up-to-date with 'origin/develop'.
 nothing to commit, working directory clean
 ```
 
+## 对比本地分支和远端分支内容的不同
+
+``` bash
+git fetch
+# git diff <local_branch> <remote_branch>
+git diff master origin/master
+```
+
+[How to compare a local git branch with its remote branch?](https://stackoverflow.com/questions/1800783/how-to-compare-a-local-git-branch-with-its-remote-branch)
+

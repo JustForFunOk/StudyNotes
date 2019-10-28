@@ -1,9 +1,20 @@
 # .gitignore
 
 ## 格式
-* 文件
-  
-* 文件夹
+
+|用法|含义|
+|:---:|:---:|
+|target/|忽略所有的`target`文件夹（即使target文件夹位于子文件夹下）|
+|target|忽略所有的`target`文件和文件夹|
+|/target/|仅忽略根目录下的`target`文件夹|
+|/target|仅忽略根目录下的`target`文件和文件夹|
+|*.out|忽略所有.out文件|
+|!/read.md|不要忽略根目录下的read.md文件|
+
+总结：前置的`/`用来表示当前目录，若无，则会递归的找到所有文件夹下；后置的`/`用来表示为文件夹；
+
+[Using .gitignore the Right Way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)
+
 
 
 ## 忽略已经追踪的文件

@@ -85,3 +85,19 @@ $ cd ~/catkin_ws
     $ rospack depends1 <package_name>  # 包的直接依赖，一级依赖
     $ rospack depends <package_name>  # 包的所有依赖，包括依赖的依赖
     ```
+
+## 将库封装成包
+
+使用catkin工具，将.cpp和.h的库封装成package，从而实现其他的package能通过`find_package()`方式来进行调用。
+
+对于要封装成pakage的库
+
+``` CMake
+
+## Declare a C++ library
+add_library(${PROJECT_NAME}
+    STATIC
+  src/transform_xy_gps.cpp
+)
+
+```
