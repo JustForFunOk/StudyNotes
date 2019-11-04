@@ -99,6 +99,8 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |find|search for files in a directory hierarchy|find -name <file_name>|比`ll -R`好用，支持正则|
 |stat|Display file or file system status.|stat filename|
 |touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|
+|top|The  top program provides a dynamic real-time view of a running system.|top|可以获得进程PID|
+
 
 ### /usr/sbin
 
@@ -106,16 +108,47 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |:--:|:--:|:--:|:--:|
 |service|run a System V init script|sudo service ssh start|更接近操作系统底层的命令？|
 |usermod|modify a user account|sudo usermod -aG dialout $USER||
+|kill|modify a user account|sudo usermod -aG dialout $USER||
 
 
 
 ## 创建自己的bash命令
 
-如cd之后经常会接ls，将这两步结合成一步cdls
+如cd之后经常会接ls，将这两步结合成一步cs。  
+
+将下面函数添加到`~/.bashrc`文件中，`source ~/.bashrc`后即可使用`cs`命令。
 
 ``` bash
-cdls() { cd "$@" && ls; }
+function cs () {
+    cd "$@" && ls
+    }
 ```
 
 [How can I create an alias for cd and ls?](https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls)  
 [Make cd automatically ls](https://unix.stackexchange.com/questions/20396/make-cd-automatically-ls)
+
+
+使用别名alias，同样也添加到`～/.bashrc`文件中
+``` bash
+alias ll='ls -l'
+```
+[How do I create a permanent Bash alias?](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
+
+## /etc/udev/.list文件的编写
+
+[1](https://www.ibm.com/developerworks/cn/linux/l-cn-udev/index.html) 这个讲的挺清楚，包括语法，中文
+
+尝试了很多方法都不能成功链接摄像头，串口的设备可以。
+
+## 保存控制台输出到文件
+
+使用重定向`>`
+
+如将catkin build打印信息保存到log.txt文件。
+``` bash
+$ catkin build > log.txt
+```
+## 记录所有操作以及输出到文件
+
+
+

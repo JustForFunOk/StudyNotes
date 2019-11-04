@@ -14,7 +14,13 @@ $ rosbag reindex *.bag.active
 $ rosbag fix *.bag.active repaired.bag
 ```
 
+
+
 ## 常用指令
 
 * rosbag play  
   Play back the contents of one or more bag files in a time-synchronized fashion.
+  播放rosbag时，本机就会出现录rosbag时的topic，可以用来仿真
+
+* rosbag record  
+  -a 录所有的topic

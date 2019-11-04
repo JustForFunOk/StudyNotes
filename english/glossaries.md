@@ -63,6 +63,13 @@ a book that gives instructions about how to do something, especially how to use 
 
 ## P
 
+### parse
+
+parse /pɑːz $ pɑːrs/ verb [transitive] 解析   
+technical to describe the grammar of a word when it is in a particular sentence, or the grammar of the whole sentence
+
+parser /ˈpärsər/ noun [countable] 解析器
+
 ## Q
 
 ## R
