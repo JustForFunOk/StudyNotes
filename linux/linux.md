@@ -53,6 +53,10 @@
    # 除此之外，还可以在两台主机之间copy文件，从远程主机1拷贝到远程主机2
    $ scp <远程主机1的user>@<远程主机1的ip地址>：<远程主机1中要copy文件的路径> <远程主机2的user>@<远程主机2的ip地址>：<远程主机2中欲放置文件的路径>
    ```
+6. bug  
+   * Destination Host Unreachable  
+     遇到过一次，ping不同同一网段其他IP，重启一下路由器就好了。
+
 
 ## 获取电脑硬件状态
 获取CPU，Memory，MotherBoard等硬件的占用率，温度等。  
@@ -97,6 +101,7 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |:--:|:--:|:--:|:--:|
 |diff|Compare FILES line by line.|diff ./a.txt ./b.txt|类似git diff </br> 相同返回0 不同返回1|
 |find|search for files in a directory hierarchy|find -name <file_name>|比`ll -R`好用，支持正则|
+|pkg-config|The  top program provides a dynamic real-time view of a running system.|pkg-config --modverison opencv|查询版本等|
 |stat|Display file or file system status.|stat filename|
 |touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|
 |top|The  top program provides a dynamic real-time view of a running system.|top|可以获得进程PID|
@@ -109,6 +114,7 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |service|run a System V init script|sudo service ssh start|更接近操作系统底层的命令？|
 |usermod|modify a user account|sudo usermod -aG dialout $USER||
 |kill|modify a user account|sudo usermod -aG dialout $USER||
+|v4l2-ctl|An application to control video4linux drivers|v4l2-ctl --list-formats-ext|获取摄像头支持的分辨率|
 
 
 
@@ -149,6 +155,5 @@ alias ll='ls -l'
 $ catkin build > log.txt
 ```
 ## 记录所有操作以及输出到文件
-
 
 

@@ -101,3 +101,10 @@ add_library(${PROJECT_NAME}
 )
 
 ```
+
+## Q&A
+
+1. package的名称是由什么决定的？  
+   和放置源代码的文件夹的名称无关。由`package.xml`文件中的`<name> package_name </name>`中的名称决定，如`caktin build <package_name>`命令中的package_name就和这个一致。  
+   CMakeLists.txt中的`project(package_name)`也要保持一致，否则编译不能通过。  
+   总的来说，我们将package所在文件夹名称，CMake中的工程名，package.xml中的工程名，三者保持一致。

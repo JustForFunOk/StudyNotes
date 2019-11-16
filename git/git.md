@@ -215,3 +215,16 @@ git diff master origin/master
 
 [How to compare a local git branch with its remote branch?](https://stackoverflow.com/questions/1800783/how-to-compare-a-local-git-branch-with-its-remote-branch)
 
+## 在远程分支最新状态的基础上建立新的本地分支
+
+建立在`remote_branch`的基础上建立`local_new_branch`分支。
+
+``` bash
+git checkout -b <local_new_branch> origin/<remote_branch>
+```
+
+还有一种做法是：在本地develop分支上`git pull`获取远端develop分支上的最新状态，然后`git checkout -b <local_new_branch>`。
+
+第一种方法能够建立upstream，通过`git branch --vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
+
+[How do I check out a remote Git branch?](https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch)

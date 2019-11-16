@@ -17,6 +17,13 @@
   github上有源代码。
 * [A surround view camera solution for embedded systems](https://www.cv-foundation.org/openaccess/content_cvpr_workshops_2014/W17/papers/Zhang_A_Surround_View_2014_CVPR_paper.pdf)  
   CVPR2014,TI公司的，没有找到源码
+
+  其作者值得关注，专注于相机的。Buyue Zhang  
+
+  [Linkedin主页上有很多信息](https://www.linkedin.com/in/buyue-zhang-9970734) 包括其所有的论文
+
+
+
 * [Three Dimensional Surround View System](https://pdfs.semanticscholar.org/601e/bc8063046bde3ac48339186af31a21343de4.pdf)  
   论文：将图像投影到碗状模型上，这样更加真实，没有找到源代码  
 * [REAL-TIME IMAGE STITCHING FOR AUTOMOTIVE 360◦VISION SYSTEMS](https://core.ac.uk/download/pdf/41813777.pdf)  
