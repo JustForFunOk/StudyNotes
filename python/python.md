@@ -311,3 +311,19 @@ b即为3.14
 $ sudo apt-get install python-pip
 $ sudo pip install <python-package>
 ```
+
+## 分离字符串中的元素
+
+按照空格分离
+``` txt
+0 0 0 0.247953 0.342936 150 181 151 181 150 182 151 182
+```
+``` python
+list = str.split() 
+```
+[How to split a string into a list?](https://stackoverflow.com/questions/743806/how-to-split-a-string-into-a-list)
+
+按照逗号分离
+``` python
+list = str.split(",") 
+```
