@@ -25,13 +25,13 @@
 ## 示例
 
 以下为使用
-``` shell
+``` bash
 catkin_create_pkg testcmakelists roscpp rospy std_msgs
 ```
 命令创建package时，`CMakeLists.txt`初始状态。
 
 
-``` CMakeLists
+``` cmake
 cmake_minimum_required(VERSION 2.8.3)
 project(testcmakelists)
 
@@ -67,7 +67,7 @@ find_package(catkin REQUIRED COMPONENTS
   ROS中至少有find_package(catkin REQUIRED)
 
   
-``` CMakeLists
+``` cmake
 ################################################
 ## Declare ROS messages, services and actions ##
 ################################################

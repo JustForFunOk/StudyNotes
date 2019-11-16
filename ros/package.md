@@ -85,3 +85,26 @@ $ cd ~/catkin_ws
     $ rospack depends1 <package_name>  # 包的直接依赖，一级依赖
     $ rospack depends <package_name>  # 包的所有依赖，包括依赖的依赖
     ```
+
+## 将库封装成包
+
+使用catkin工具，将.cpp和.h的库封装成package，从而实现其他的package能通过`find_package()`方式来进行调用。
+
+对于要封装成pakage的库
+
+``` CMake
+
+## Declare a C++ library
+add_library(${PROJECT_NAME}
+    STATIC
+  src/transform_xy_gps.cpp
+)
+
+```
+
+## Q&A
+
+1. package的名称是由什么决定的？  
+   和放置源代码的文件夹的名称无关。由`package.xml`文件中的`<name> package_name </name>`中的名称决定，如`caktin build <package_name>`命令中的package_name就和这个一致。  
+   CMakeLists.txt中的`project(package_name)`也要保持一致，否则编译不能通过。  
+   总的来说，我们将package所在文件夹名称，CMake中的工程名，package.xml中的工程名，三者保持一致。

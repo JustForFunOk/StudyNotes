@@ -18,97 +18,33 @@
 
 * 
 
-## 计算机硬件
-
-* 进制  
-数据容量使用二进制，1GB=1024x1024x1024B  
-速度单位使用十进制，1GHz=1000x1000x1000Hz
-
-* 网络  
-网络中使用位(bit)为单位，常说的20M带宽，其单位为`Mbit/s`，而我们下载时显示的速度以数据容量衡量，其单位为字节(Byte)，所以20M带宽,其理论最大传输速度为2.5MB/s。  
-
-* 主板  
-主板上的芯片组**早期**通常分为两个网桥来控制各组件通信：  
-    * 北桥  
-    负责连接速度较快的CPU、内存与显卡等组件  
-    * 南桥  
-    负责连接速度较慢的设备接口，包括硬盘、USB设备、网卡等  
-    
-    由于北桥最重要的就是CPU与内存之间的桥接，所以目前主流架构中，**大多将北桥的内存控制器整合到了CPU当中**。
-
-* CPU  
-以i7-8700为例：  
-处理器内核数：6核心  
-处理器线程数：12线程(超线程技术Hyper-Threading)  
-处理器基础频率：3.2GHz  
-字长：CPU每次能够处理的数据量，我们所说的32位或64位，主要是依据CPU解析的字长而来的。  
-
-
-
-* 内存条  
-内存条主要组件为动态随机存取内存(Dynamic Random Access Memory,DRAM)  
-以DDR4 3000 8G为例，,DDR4中DDR是指双倍数据传输速度(Double Data Rate,DDR)，内存条的带宽=频率x位宽=3000MHzx64bit=3000MHzx8Byte=24GB/s  
-多通道，如主板支持双通道，两条内存条可使位宽达到128bit  
-
-* 二级缓存  
-二级缓存(L2 Cache)属于静态随机存取内存(Static Random Access Memory,SRAM)。  
-因为要整合到CPU内部，L2内存的速度要和CPU频率相同，DRAM无法达到这个速度，而SRAM在设计中使用的晶体管数量较多，价格较高，且不易做成大容量。  
-
-* 显卡  
-
-
-* 硬盘  
-以硬盘的SATA3.0接口为例，其支持最大带宽6Gbit/s，则最大传输速度=6/(8+2)=600MB/s，8表示8位数据位，2表示2位校验位。  
-以移动硬盘USB接口为例，USB2.0仅有60MB/s的理论传输速率，USB3.0可达500MB/s，USB3.1可达1000MB/s。  
-但机械硬盘由于其物理组成的限制，一般极限速度在150MB/s～200MB/s之间。所以对于移动机械硬盘只需USB3.0即可，而移动固态硬盘就支持USB3.1。
-
-
-
-## 权限
-
-### 文件权限
-
-文件基本权限有9个：`-rwxrwxrwx`  
-`-` 类型为文件，其他类型:`l`为链接，`c`为，  
-`r` = read 读  
-`w` = write 写  
-`x` = execute 执行  
-从左向右`rwx`依次为拥有者(owner)、所属群组(group)、其他人(others)三种身份
-
-#### 修改文件权限
-
-`chmod` = **ch**ange **mod**e  
-
-``` bash
-## 数字类型修改文件权限 ##
-chmod 777 <file_name>  # 将文件权限修改为，所有人，可读可写可执行
-# r:4 w:2 x:1
-# 777表示[4+2+1][4+2+1][4+2+1]，其余类推
-
-## 符号类型修改文件权限 ##
-chmod u=rwx,g=rwx,o=r <file_name>  # 用户和组用户成员，可读可写可执行,其他人只可读
-chmod a+x <file_name>  # 为文件添加所有人可执行权限，其余权限保持不变
-chmod a-x <file_name>  # 所有人均不可执行，其余权限保持不变
-# 用户: u = user, g = group, o = other, a = all
-# 权限: +添加权限 -移除权限 =设置权限
-```
-数字类型方法：直接修改为目标权限，不管文件之前的权限。  
-符号类型方法：修改某些权限，而其余权限保持不变。
-
 ## 设备
 
+* [USB](./dev_usb.md)  
+  * 权限
+  * 多个USB管理 
 
 
 ## 通过SSH传输文件
 
 1. 网线互联。一个开无线wifi热点，另一个连接？没有测试过
 2. 将网段设置为同一网段，并ping通测试。
-3. 通过ssh和远程主机建立连接。
+3. [第一次使用] 被控制方准备好环境    
     ``` bash
+    # 被控制方要安装openssh-server,默认没有安装
+    $ sudo apt-get install openssh-server
+    # 查看状态
+    $ sudo service ssh status
+    # 若未启动，可启动
+    $ sudo service ssh start
+    ```
+4. 通过ssh和远程主机建立连接。
+    ``` bash
+    # 控制方需要ssh工具，默认已安装在/usr/bin目录下
     # -X 打开X11图像界面
     $ ssh -X <远程主机user>@<远程主机ip地址>
     ``` 
-4. 复制文件
+5. 复制文件
    ``` bash
    # scp - secure copy (remote file copy program)
    # 更多内容参见 man scp
@@ -117,6 +53,10 @@ chmod a-x <file_name>  # 所有人均不可执行，其余权限保持不变
    # 除此之外，还可以在两台主机之间copy文件，从远程主机1拷贝到远程主机2
    $ scp <远程主机1的user>@<远程主机1的ip地址>：<远程主机1中要copy文件的路径> <远程主机2的user>@<远程主机2的ip地址>：<远程主机2中欲放置文件的路径>
    ```
+6. bug  
+   * Destination Host Unreachable  
+     遇到过一次，ping不同同一网段其他IP，重启一下路由器就好了。
+
 
 ## 获取电脑硬件状态
 获取CPU，Memory，MotherBoard等硬件的占用率，温度等。  
@@ -126,8 +66,10 @@ Python开源库：[psutil](https://github.com/giampaolo/psutil)
 
 |单词|来源|含义|举例|
 |:---:|:---:|:---:|:---:|
-|l|list|列举|ls -l|
-|man|manual|手册|man which|
+|l|**l**ong|长列表|ls -**l** ~|
+|ls|**l**i**s**t|列清单|ls ~|
+|man|**man**ual|手册|man which|
+|stat|**stat**us|状态|stat filename|
 
 
 ## 判断某个软件有没有被安装
@@ -140,3 +82,78 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 
 
 [How can I find out if a specific program is installed? [duplicate]](https://askubuntu.com/questions/87415/how-can-i-find-out-if-a-specific-program-is-installed)
+
+## Ubuntu工具
+
+这些工具还可以在写shell脚本时进行调用，实现自动化
+
+### /bin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|date|Display the current time in the given FORMAT, or set the system date.|date +%Y%m%d%H%M%S|`date`命令在sh脚本中很有用|
+
+
+
+### /usr/bin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|diff|Compare FILES line by line.|diff ./a.txt ./b.txt|类似git diff </br> 相同返回0 不同返回1|
+|find|search for files in a directory hierarchy|find -name <file_name>|比`ll -R`好用，支持正则|
+|pkg-config|The  top program provides a dynamic real-time view of a running system.|pkg-config --modverison opencv|查询版本等|
+|stat|Display file or file system status.|stat filename|
+|touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|
+|top|The  top program provides a dynamic real-time view of a running system.|top|可以获得进程PID|
+
+
+### /usr/sbin
+
+|命令|功能|举例|备注|
+|:--:|:--:|:--:|:--:|
+|service|run a System V init script|sudo service ssh start|更接近操作系统底层的命令？|
+|usermod|modify a user account|sudo usermod -aG dialout $USER||
+|kill|modify a user account|sudo usermod -aG dialout $USER||
+|v4l2-ctl|An application to control video4linux drivers|v4l2-ctl --list-formats-ext|获取摄像头支持的分辨率|
+
+
+
+## 创建自己的bash命令
+
+如cd之后经常会接ls，将这两步结合成一步cs。  
+
+将下面函数添加到`~/.bashrc`文件中，`source ~/.bashrc`后即可使用`cs`命令。
+
+``` bash
+function cs () {
+    cd "$@" && ls
+    }
+```
+
+[How can I create an alias for cd and ls?](https://askubuntu.com/questions/16106/how-can-i-create-an-alias-for-cd-and-ls)  
+[Make cd automatically ls](https://unix.stackexchange.com/questions/20396/make-cd-automatically-ls)
+
+
+使用别名alias，同样也添加到`～/.bashrc`文件中
+``` bash
+alias ll='ls -l'
+```
+[How do I create a permanent Bash alias?](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
+
+## /etc/udev/.list文件的编写
+
+[1](https://www.ibm.com/developerworks/cn/linux/l-cn-udev/index.html) 这个讲的挺清楚，包括语法，中文
+
+尝试了很多方法都不能成功链接摄像头，串口的设备可以。
+
+## 保存控制台输出到文件
+
+使用重定向`>`
+
+如将catkin build打印信息保存到log.txt文件。
+``` bash
+$ catkin build > log.txt
+```
+## 记录所有操作以及输出到文件
+
+

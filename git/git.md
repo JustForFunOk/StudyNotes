@@ -186,3 +186,45 @@ git push origin HEAD:develop
 ### 参考
 1. [How can I add an empty directory to a Git repository?](https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
 2. [Git FAQ](https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F)
+
+## git ahead of
+
+``` bash
+$ git status
+On branch develop
+Your branch is ahead of 'origin/develop' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+```
+本地代码已经push，没有做任何修改，为什么会ahead of ?  
+
+因为你push之后没有更新远端状态，执行`git pull --rebase`操作后，将远端情况更新到本地就没问题了。
+``` bash
+On branch develop
+Your branch is up-to-date with 'origin/develop'.
+nothing to commit, working directory clean
+```
+
+## 对比本地分支和远端分支内容的不同
+
+``` bash
+git fetch
+# git diff <local_branch> <remote_branch>
+git diff master origin/master
+```
+
+[How to compare a local git branch with its remote branch?](https://stackoverflow.com/questions/1800783/how-to-compare-a-local-git-branch-with-its-remote-branch)
+
+## 在远程分支最新状态的基础上建立新的本地分支
+
+建立在`remote_branch`的基础上建立`local_new_branch`分支。
+
+``` bash
+git checkout -b <local_new_branch> origin/<remote_branch>
+```
+
+还有一种做法是：在本地develop分支上`git pull`获取远端develop分支上的最新状态，然后`git checkout -b <local_new_branch>`。
+
+第一种方法能够建立upstream，通过`git branch --vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
+
+[How do I check out a remote Git branch?](https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch)

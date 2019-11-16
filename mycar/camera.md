@@ -72,17 +72,18 @@
 
 UVC(USB Video Class)为Microsoft与另外几家设备厂商联合推出的为USB视频捕获设备定义的协议标准，现主流操作系统都已提供UVC设备驱动，因此符合UVC规格的硬件设备在不需要安装任何的驱动程序下即可在主机中正常使用。购买的USB摄像头都支持标准UVC协议。
 
-[ROS下的usb_cam驱动](http://wiki.ros.org/usb_cam)
+[ROS下的usb_cam驱动](http://wiki.ros.org/usb_cam)  
 [ROS下的uvc_cam驱动](http://wiki.ros.org/libuvc_camera)
 
-[通过摄像头设备的ID来获取图像](https://blog.csdn.net/qq_24894159/article/details/82939542)
+[通过摄像头设备的ID来获取图像](https://blog.csdn.net/qq_24894159/article/details/82939542)  
+这个应该不适用于多个摄像头。
 
 [如何判断是usb_cam还是uvc_cam？](https://www.jianshu.com/p/e0d96f55f307)
 ``` bash
-1. 列出当前USB设备
+# 1. 列出当前USB设备
 $ lsusb
-2. 找到摄像头对应的ID，如ID 04f2:b66a
-3. 在 http://www.ideasonboard.org/uvc/ 上进行查询
+# 2. 找到摄像头对应的ID，我的是Bus 001 Device 004: ID 05a3:9230 ARC International
+# 3. 在 http://www.ideasonboard.org/uvc/ 上进行查询
 ```
 
 ## 其他

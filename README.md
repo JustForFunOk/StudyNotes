@@ -4,11 +4,14 @@
 
 ## [CMake](cmake/cmake.md)
 
+## []()
+
+## [Electronic](hardware/hardware.md)
+
 ## [English]()
 
-## [Git](git/git.md)
 
-## [Hardware](hardware/hardware.md)
+## [Git](git/git.md)
 
 ## [Html](html/html.md)
 
