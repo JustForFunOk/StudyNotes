@@ -11,13 +11,29 @@
 
 对于鱼眼相机FOV大于180度，若还使用针孔模型，那么成像面就要无限大，显然不合适。
 
+cv: pinhole + Radtan
+
+cv::fisheye: pinhole + Equi 鱼眼用的是针孔模型？
+
+cv::omnidir: Omni + Radtan
+
+### 
+
+## 畸变模型
+
+### Radial Distortion Model
+
+TI公司用的
 
 
 ## 标定工具
 
 the toolbox of Scaramuzza？
 
-OpenCV fisheye
+### [OpenCV fisheye](https://docs.opencv.org/3.3.1/db/d58/group__calib3d__fisheye.html)
+
+
+
 
 
 
@@ -30,7 +46,7 @@ OpenCV fisheye
   里面介绍了多种相机模型，畸变模型，投影模型，好像不错，里面参考的几个链接貌似也有料
 
 * [A surround view camera solution for embedded systems](https://www.cv-foundation.org/openaccess/content_cvpr_workshops_2014/W17/papers/Zhang_A_Surround_View_2014_CVPR_paper.pdf)  
-  CVPR2014,TI公司的，没有找到源码
+  CVPR2014,TI公司的，没有找到源码。这个里面没讲到用的什么相机模型？
 
   其作者值得关注，专注于相机的。Buyue Zhang  
 
