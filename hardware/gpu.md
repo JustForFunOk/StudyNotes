@@ -2,11 +2,16 @@
 
 ## ITX
 
-||1650|1660|2060|1070|Jeston NANO
+||[1650](https://www.nvidia.cn/geforce/graphics-cards/gtx-1650/)|[1660](https://www.nvidia.cn/geforce/graphics-cards/gtx-1660-ti/)|2060|1070|Jeston NANO
 |:--:|:--:|:--:|:--:|:--:|:--:|
 |架构|Turing|Turing|||
 |定位||||||
-|功率|||||5-10W|||
+|显存|4GB </br> GDDR5|6GB </br> GDDR5||8GB </br> GDDR5|||
+|显存速率|8Gbps|8Gbps|||
+|显卡频率|1485|1530||1506|
+|CUDA核心数|896|1408||1920|
+|功率|75W|120W|1|150W|5-10W|||
+|系统功率|300W||
 
 
 

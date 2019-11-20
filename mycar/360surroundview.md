@@ -40,6 +40,12 @@ the toolbox of Scaramuzza？
 
 这也有个[针对fisheye的教程](https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0)，还将了如何找回失去的部分图像。
 
+## Papers
+
+1. [Dr. Juho Kannala](https://users.aalto.fi/~kannalj1/) A generic camera model and calibration method for conventional, wide-angle and fish-eye lenses.  
+   1.1. [Camera Calibration Toolbox for Generic Lenses](http://www.ee.oulu.fi/~jkannala/calibration/calibration.html)  Matlab Calibration Tool和这个什么关系？
+2. 
+
 ## 参考资料
 
 * [鱼眼相机成像模型](https://blog.csdn.net/u010128736/article/details/52864024#commentBox)  
