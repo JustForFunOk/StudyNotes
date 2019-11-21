@@ -23,6 +23,20 @@ a list of special words and explanations of their meanings, often at the end of 
 
 ## D
 
+### diviation
+
+de‧vi‧a‧tion /ˌdiːviˈeɪʃən/ ●○○ AWL noun 偏差  
+the difference between a number or measurement in a set and the average of all the numbers or measurements in that set
+
+standard deviation 标准差
+
+* std dev
+    ``` bash
+    $ rostopic hz <topic>
+    average rate: 49.976
+	    min: 0.019s max: 0.021s std dev: 0.00024s window: 47
+    ```
+
 ## E
 
 ## F
