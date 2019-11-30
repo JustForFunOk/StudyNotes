@@ -32,7 +32,10 @@ the toolbox of Scaramuzza？
 
 ### [OpenCV fisheye](https://docs.opencv.org/3.3.1/db/d58/group__calib3d__fisheye.html)
 
+这个算法用的是什么模型？
+[其作者说了](https://github.com/opencv/opencv/pull/2889)是使用的Matlab中[Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/index.html#links)的方法，参考的文章是[A Generic Camera Model and Calibration Method for Conventional, Wide-Angle, and Fish-Eye Lenses](http://www.ee.oulu.fi/~jkannala/publications/tpami2006.pdf)--06年的TPAMI
 
+有人对改方法对于fisheye的可用性[提出了质疑](https://stackoverflow.com/questions/31089265/what-are-the-main-references-to-the-fish-eye-camera-model-in-opencv3-0-0dev)，也提到了OpenCV4，可以再看一下。
 
 https://blog.csdn.net/qq_15947787/article/details/51441031
 
@@ -40,7 +43,13 @@ https://blog.csdn.net/u011475210/article/details/79185543
 
 https://blog.csdn.net/u010128736/article/details/53022892
 
+这也有个[针对fisheye的教程](https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0)，还将了如何找回失去的部分图像。
 
+## Papers
+
+1. [Dr. Juho Kannala](https://users.aalto.fi/~kannalj1/) A generic camera model and calibration method for conventional, wide-angle and fish-eye lenses.  
+   1.1. [Camera Calibration Toolbox for Generic Lenses](http://www.ee.oulu.fi/~jkannala/calibration/calibration.html)  Matlab Calibration Tool和这个什么关系？
+2. 
 
 ## 参考资料
 

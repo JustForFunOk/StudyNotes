@@ -24,6 +24,14 @@
     ``` bash
     $ rostopic echo <topic_name>
     ```    
+4. 人工发送消息到某个topic上
+   ``` bash
+   $ rostopic pub -r <Hz> <topic_name> <message_name> <message_variable_value>
+   ```
+   具体参见[rostopic pub](http://wiki.ros.org/rostopic#rostopic_pub)，该命令会发布该topic并发送消息到topic上，不需要预先启动发布该topic的节点，消息中变量的赋值支持yaml格式，如
+   ``` bash
+    rostopic pub /can_receiver_node/can_message/status_sig_20 can_receiver/status_sig_20 '{header: {stamp: now},ESP_v_Signal: 0, TSK_Status: $TSK_Value, EPB_Status: 0, ESP_Bremsdruck: 0 }' -r 50 
+   ```
 
 ## Message
 
@@ -49,6 +57,7 @@ msg中定义的Message相当于C++中的类，定义了消息格式，发布到T
 2. 显示某个msg的内部结构
     ``` bash
     $ rosmsg show <msg_name>
+    ```
 
 
 ### 代码模板
