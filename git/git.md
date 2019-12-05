@@ -219,11 +219,14 @@ git diff master origin/master
 
 建立在`remote_branch`的基础上建立`local_new_branch`分支。
 
+创建分支后还是要手动`git pull`一下，因为这是在本地暂存的`remote_branch`上建立的分支，这时远端的改变并没有更新到本地。
+
 ``` bash
-git checkout -b <local_new_branch> origin/<remote_branch>
+$ git checkout -b <local_new_branch> origin/<remote_branch>
+$ git pull
 ```
 
-还有一种做法是：在本地develop分支上`git pull`获取远端develop分支上的最新状态，然后`git checkout -b <local_new_branch>`。
+我之前还有一种做法是：在本地develop分支上`git pull`获取远端develop分支上的最新状态，然后`git checkout -b <local_new_branch>`。
 
 第一种方法能够建立upstream，通过`git branch --vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
 
