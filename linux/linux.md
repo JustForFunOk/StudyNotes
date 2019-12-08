@@ -157,3 +157,31 @@ $ catkin build > log.txt
 ## 记录所有操作以及输出到文件
 
 
+
+## [清理boot文件夹内容](https://askubuntu.com/questions/345588/what-is-the-safest-way-to-clean-up-boot-partition)
+
+``` bash
+# 查看目前使用的内核版本
+$ uname -r
+# 查看系统中所有内核版本
+$ dpkg --list 'linux-image*' | grep ^ii
+# 删除无用的内核版本
+$ sudo apt-get remove linux-image-<useless-version>
+# update grub kernel list
+$ sudo update-grub
+```
+
+## 为应用程序创建启动图标
+
+如，matlab安装后只能在安装路径下启动。
+
+首先，用`ln -s`命令（这种情况一般用软链接还是硬链接？）在/usr/bin下创建启动程序的链接文件，具体链接关系如下：`/usr/bin/matlab`-->`/etc/alternatives/matlab`-->`/usr/local/<matlab_install_path>bin/matlab`。`/etc/alternatives/`这个文件夹，是结合`update-alternatives`这个命令来管理默认程序的。
+
+这样在任何终端任何路径都能`matlab`启动matlab了。
+
+然后，在`/usr/share/applications`中创建`matlab.desktop`文件，仿照其他文件填写内容即可。
+
+## 如何判断链接文件时硬链接还是软链接
+
+通过`ls -li`来查看文件inode number，硬链接ID相同，软的则不同
+
