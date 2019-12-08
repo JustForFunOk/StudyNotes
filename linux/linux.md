@@ -105,6 +105,7 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |stat|Display file or file system status.|stat filename|
 |touch|Update the access and modification times of each FILE to the current time.</br>  A FILE argument that does not exist is created empty|touch filename|常用来创建空文件|
 |top|The  top program provides a dynamic real-time view of a running system.|top|可以获得进程PID|
+|strings|print the strings of printable characters in files.|strings filename \| grep find_string|查找文件中是否包含某个字符串（文件可以是源代码，动态库，可执行文件等）|
 
 
 ### /usr/sbin
@@ -115,7 +116,6 @@ Linux下不像WIN下对软件统一管理，如：apt方法安装的软件和dpk
 |usermod|modify a user account|sudo usermod -aG dialout $USER||
 |kill|modify a user account|sudo usermod -aG dialout $USER||
 |v4l2-ctl|An application to control video4linux drivers|v4l2-ctl --list-formats-ext|获取摄像头支持的分辨率|
-
 
 
 ## 创建自己的bash命令

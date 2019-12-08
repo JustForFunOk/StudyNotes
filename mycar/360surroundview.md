@@ -30,24 +30,12 @@ TI公司用的
 
 the toolbox of Scaramuzza？
 
-### [OpenCV fisheye](https://docs.opencv.org/3.3.1/db/d58/group__calib3d__fisheye.html)
 
-这个算法用的是什么模型？
-[其作者说了](https://github.com/opencv/opencv/pull/2889)是使用的Matlab中[Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/index.html#links)的方法，参考的文章是[A Generic Camera Model and Calibration Method for Conventional, Wide-Angle, and Fish-Eye Lenses](http://www.ee.oulu.fi/~jkannala/publications/tpami2006.pdf)--06年的TPAMI
-
-有人对改方法对于fisheye的可用性[提出了质疑](https://stackoverflow.com/questions/31089265/what-are-the-main-references-to-the-fish-eye-camera-model-in-opencv3-0-0dev)，也提到了OpenCV4，可以再看一下。
-
-https://blog.csdn.net/qq_15947787/article/details/51441031
-
-https://blog.csdn.net/u011475210/article/details/79185543
-
-https://blog.csdn.net/u010128736/article/details/53022892
-
-这也有个[针对fisheye的教程](https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0)，还将了如何找回失去的部分图像。
 
 ## Papers
 
-1. [Dr. Juho Kannala](https://users.aalto.fi/~kannalj1/) A generic camera model and calibration method for conventional, wide-angle and fish-eye lenses.  
+1. [Dr. Juho Kannala](https://users.aalto.fi/~kannalj1/)  
+   Kannala J , Brandt S S . A Generic Camera Model and Calibration Method for Conventional, Wide-Angle, and Fish-Eye Lenses[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2006, 28(8):1335-1340.  
    1.1. [Camera Calibration Toolbox for Generic Lenses](http://www.ee.oulu.fi/~jkannala/calibration/calibration.html)  Matlab Calibration Tool和这个什么关系？
 2. 
 
@@ -70,7 +58,7 @@ https://blog.csdn.net/u010128736/article/details/53022892
   大致讲了流程，没有理论没有实践，结合实际市场来讲的  
   标定方法：棋盘式，框线式
 * [w77AYU的博客](https://blog.csdn.net/w77ayu/article/category/7460847)  
-  讲的很浅，只有理论没有实践
+  讲了车载环视的几个大步骤，很浅，只有理论没有实践
 * [Image Bird's view and image stitching for surround view in opencv c++](https://stackoverflow.com/questions/48661190/image-birds-view-and-image-stitching-for-surround-view-in-opencv-c#)  
   他做了相机标定、畸变矫正、生成鸟瞰图、使用opencv中的stitching的方法进行四张图的拼接  
   他用的生成生成鸟瞰图的[代码](https://gist.github.com/anujonthemove/7b35b7c1e05f01dd11d74d94784c1e58)

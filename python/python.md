@@ -33,7 +33,9 @@
 
 ## 逻辑运算符
 
-等于`==` 不等于`！=` 与`and` 或`or` 大于等于`>=` 小于等于`<=`
+等于`==` 不等于`！=`  大于等于`>=` 小于等于`<=`
+
+与`and` 或`or` 非`not`
 
 ## 字符串转数字
 
@@ -271,10 +273,24 @@ if __name__ == "__main__":
 ```
 ## 文件开头
 
+/usr/bin/env输出的是系统的环境变量和路径。
+
+`#!`叫做`shebang line`，在Unix系统中比较有用.
+> In a Unix-like operating system, the program loader takes the presence of these two characters as an indication that the file is a script, and tries to execute that script using the interpreter specified by the rest of the first line in the file.
+
 ``` python
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 ```
+
+若要指定某个版本也可以下述的形式指定。
+``` python
+#! /usr/bin/env python
+#! /usr/bin/env python2.6
+#! /usr/bin/env python3
+```
+
+[Why do people write the #!/usr/bin/env python shebang on the first line of a Python script?](https://stackoverflow.com/questions/2429511/why-do-people-write-the-usr-bin-env-python-shebang-on-the-first-line-of-a-pyt)
 
 ## 获取字符串中的指定一段
 
@@ -327,3 +343,15 @@ list = str.split()
 ``` python
 list = str.split(",") 
 ```
+
+## 枚举
+
+``` python
+from enum import Enum
+
+class CAMERA_MODEL(Enum):  # 继承Enum类
+    PINHOLE = 0
+    FISHEYE = 1
+```
+
+[Python中枚举的使用](https://blog.csdn.net/m0_38061927/article/details/76058133)

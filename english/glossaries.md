@@ -39,6 +39,13 @@ standard deviation 标准差
 
 ## E
 
+### enumerate
+
+e‧nu‧me‧rate /ɪˈnjuːməreɪt/ verb [transitive] 枚举
+
+to name a list of things one by one
+
+* enum 枚举
 ## F
 
 ## G
