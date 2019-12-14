@@ -9,7 +9,7 @@
 
 ### pinhole
 
-对于鱼眼相机FOV大于180度，若还使用针孔模型，那么成像面就要无限大，显然不合适。
+
 
 cv: pinhole + Radtan
 
@@ -25,10 +25,15 @@ cv::omnidir: Omni + Radtan
 
 TI公司用的
 
+## 多相机标定
 
-## 标定工具
+### Matlab Stereo
 
-the toolbox of Scaramuzza？
+
+### OpenCV Contirb Multi-camera-calibration
+
+
+
 
 
 

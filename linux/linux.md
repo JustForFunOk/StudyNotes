@@ -185,3 +185,23 @@ $ sudo update-grub
 
 通过`ls -li`来查看文件inode number，硬链接ID相同，软的则不同
 
+## 文件拷贝时权限变化
+
+文件从电脑拷贝到移动硬盘，权限全部发生了变化。
+文件全部变成`-rwx------`，文件夹全部变成`drwx------`。
+
+和拷贝没有关系，主要是硬盘是NTFS格式的，不支持权限管理。
+
+you can't store any special file attributes like owner, permissions etc (this shouldn't be a problem for documents and videos though)
+
+[File permissions change after copying to portable hard disk](https://askubuntu.com/questions/402890/file-permissions-change-after-copying-to-portable-hard-disk)
+
+[backup drive: ext4 / FAT?](https://askubuntu.com/questions/64482/backup-drive-ext4-fat)
+
+
+## 磁盘格式
+
+* FAT
+
+* NTFS
+* Ext4

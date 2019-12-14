@@ -231,3 +231,17 @@ $ git pull
 第一种方法能够建立upstream，通过`git branch --vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
 
 [How do I check out a remote Git branch?](https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch)
+
+## 忽略权限的管理
+文件拷贝到U盘，权限发生了变化
+``` bash
+$ git diff
+old mode 100644
+new mode 100755
+```
+不将文件的权限加入到版本管理中
+``` bash
+$ git config core.filemode false
+```
+
+[How do I remove files saying “old mode 100755 new mode 100644” from unstaged changes in Git?](https://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha)

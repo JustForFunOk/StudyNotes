@@ -70,40 +70,60 @@ Kannala J , Brandt S S . A Generic Camera Model and Calibration Method for Conve
 
 ## 标定工具
 
-### ROS中的camera_calibration工具
+有很多工具说是可以适用于fisheye，但是用的还是针孔模型，只是畸变参数多用了一阶泰勒展开，如OpenCV。
 
-其内部是用OpenCV的fisheye类实现的。
+### Q&A
+如何判断到底是不是真正的fisheye？
 
-#### [OpenCV fisheye](https://docs.opencv.org/3.3.1/db/d58/group__calib3d__fisheye.html)
+从标定结果去判断，看标定的相机内参，如果还存在$f_x$和$f_y$，那么还是针孔模型。
 
-这个算法用的是什么模型？
-[其作者说了](https://github.com/opencv/opencv/pull/2889)是使用的Matlab中[Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/index.html#links)的方法，参考的文章是[A Generic Camera Model and Calibration Method for Conventional, Wide-Angle, and Fish-Eye Lenses](http://www.ee.oulu.fi/~jkannala/publications/tpami2006.pdf)--06年的TPAMI
+### OpenCV流派
+
+OpenCV目前还没有能用的！！
+
+
+#### [不可用][OpenCV fisheye](https://docs.opencv.org/3.3.1/db/d58/group__calib3d__fisheye.html)
+
+这个算法用的是什么模型？  
+[其作者说了](https://github.com/opencv/opencv/pull/2889)是使用的Matlab中[Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/index.html#links)的方法。OpenCV中的fisheye指的是FOV比较大但是在180度以内的，对于超过180度的（他们称super-fisheye）不适用。
 
 有人对OpenCV中fisheye的可用性[提出了质疑](https://stackoverflow.com/questions/31089265/what-are-the-main-references-to-the-fish-eye-camera-model-in-opencv3-0-0dev)，质疑的非常对，我看了一下OpenCV的文档，fisheye仍然是针孔模型，
 $$\theta=atan(r)$$
 仅仅是镜像畸变多用了一阶泰勒展开
 $$\theta_{d}=\theta(1+k_1 \theta^2+k_2 \theta^4+ k_3 \theta^6+k_4 \theta^8)$$
 
-此人也提到了OpenCV4会修复这个问题，可以再看一下。
-
-这也有个[针对fisheye的教程](https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0)，还将了如何找回失去的部分图像。
+此人也提到了OpenCV4会修复这个问题，[目前的更新](https://github.com/opencv/opencv/wiki/ChangeLog)没看到，关注后续吧版本吧。
 
 
-### Matlab
+因此，目前基于OpenCV的fisheye的工具都不可用！！！如，ROS中的camera_calibration工具。
 
-~~Matlab中(R2017b)自带的~~`Camera Calibrator`使用的仍然是针孔模型，不适用于鱼眼相机。
+#### [OpenCV Contrib omnidir](https://github.com/opencv/opencv_contrib/blob/master/modules/ccalib/tutorials/omnidir_tutorial.markdown)
 
-#### [OCamCalib Toolbox](https://sites.google.com/site/scarabotix/ocamcalib-toolbox)
 
-Omnidirectional Camera Calibration Toolbox for Matlab
+[Multi-camera Calibration](https://github.com/opencv/opencv_contrib/blob/master/modules/ccalib/tutorials/multi_camera_tutorial.markdown)可以同时标定多个相机的内参以及相互之间的位置，而且支持真正的fisheye相机，其参考的论文为
 
-作者`Scaramuzza, D.`，[此处](https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page)有其对应发表的论文以及源代码
+Li B , Heng L , Koser K , et al. A multiple-camera system calibration toolbox using a feature descriptor-based calibration pattern[C]// IEEE/RSJ International Conference on Intelligent Robots & Systems. IEEE, 2014.
 
+
+### Matlab流派
+
+推荐Matlab自带的`Camera Calibrator`！！！  
+
+关于Matlab中fisheye原理的说明：[Fisheye Calibration Basics](https://www.mathworks.com/help/vision/ug/fisheye-calibration-basics.html#mw_8aca38cc-44de-4a26-a5bc-10fb312ae3c5)  
+
+注意：只有新版本的Matlab才有标定fisheye相机的功能，R2017b中没有，R2019a中加入了fisheye的标定！
+
+很多论文的作者也有Matlab的示例代码，原理没问题，就是有些代码比较老，太难用。
+
+#### [不好用][OCamCalib Toolbox](https://sites.google.com/site/scarabotix/ocamcalib-toolbox) 
+代码使用起来太不友好，还是直接使用Matlab2019，里面用的就是该作者提出的算法。  
+Omnidirectional Camera Calibration Toolbox for Matlab  
+作者`Scaramuzza, D.`，[此处](https://sites.google.com/site/scarabotix/ocamcalib-toolbox/ocamcalib-toolbox-download-page)有其对应发表的论文以及源代码。  
 作者自称This toolbox is currently used by NASA, PHILIPS, BOSCH, DAIMLER，貌似很强大。
 
 
 
 
-[Fisheye Calibration Basics](https://www.mathworks.com/help/vision/ug/fisheye-calibration-basics.html#mw_8aca38cc-44de-4a26-a5bc-10fb312ae3c5)  
+
 
 
