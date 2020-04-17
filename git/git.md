@@ -1,7 +1,7 @@
 # Git
 
 ## 资料
-1. [Git FAQ](https://git.wiki.kernel.org/index.php/Git_FAQ)  
+1. [Git FAQ](https://git.wiki.kernel.org/index.php/Git_FAQ)
    上面有很多经典问题，可以过一遍
 
 
@@ -14,7 +14,7 @@
 
 > 本地与远程仓库协作
 
-- [通过SSH密钥建立本地与云端的连接](#通过SSH密钥建立本地与云端的连接)  
+- [通过SSH密钥建立本地与云端的连接](#通过SSH密钥建立本地与云端的连接)
 - [本地仓库首次托管到远程仓库](#本地仓库首次托管到远程仓库)
 
 
@@ -34,7 +34,7 @@ git commit -m "first commit"
 
 # [通过SSH密钥建立本地与云端的连接](https://help.github.com/cn/articles/connecting-to-github-with-ssh)
 
-## [关于SSH](https://help.github.com/cn/articles/about-ssh)  
+## [关于SSH](https://help.github.com/cn/articles/about-ssh)
 
 使用SSH协议，可以建立与远程服务器的连接和认证。而使用SSH密钥，可以在不使用用户名和密码的情况下连接服务器。
 
@@ -54,7 +54,7 @@ $ ssh-keygen -t rsa -b 4096 -C "GitHub上的电子邮件地址"
 
 ## [在Github中添加SSH密钥](https://help.github.com/cn/articles/adding-a-new-ssh-key-to-your-github-account)
 
-1. 复制SSH密钥到剪贴板  
+1. 复制SSH密钥到剪贴板
 命令行的方式反而不好用，直接打开公钥复制出来即可。
     ``` bash
     # win
@@ -64,7 +64,7 @@ $ ssh-keygen -t rsa -b 4096 -C "GitHub上的电子邮件地址"
     $ xclip -sel clip < ~/.ssh/id_rsa.pub
     ```
 
-2. 添加到github账户  
+2. 添加到github账户
 
     Settings --> SSH and GPG keys --> New SSH key
 
@@ -82,18 +82,18 @@ $ ssh -T git@github.com
 ``` bash
 $ ssh-keygen -p
 ```
-  
+
 ---
 
 ## SSH密钥共存
 
-1. `ssh-keygen`生成密钥时保存成不同的名称。  
+1. `ssh-keygen`生成密钥时保存成不同的名称。
 2. 后台启动ssh-agent
     ``` bash
     $ eval $(ssh-agent -s)
     > Agent pid xxxxx
     ```
-3. 将 SSH 私钥添加到 ssh-agent  
+3. 将 SSH 私钥添加到 ssh-agent
 
     没有`.pub`后缀的是私钥
     ``` bash
@@ -102,7 +102,7 @@ $ ssh-keygen -p
 4. [可选]查看已经添加的密钥
     ``` bash
     $ ssh-add -l
-    ``` 
+    ```
 5. 添加配置文件
     ``` bash
     $ cd ~/.ssh
@@ -153,7 +153,7 @@ $ git fetch --all && git reset --hard origin/<master> && git pull
 # git status
 
 ## 查看被忽略的文件
-> --ignored  
+> --ignored
 > Show ignored files as well.
 
 .gitignore中设置忽略文件后，可以通过下述命令验证结果
@@ -163,7 +163,7 @@ git status --ignored
 
 # git push
 
-> -u, --set-upstream  
+> -u, --set-upstream
     For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull(1) and other commands.
 
 本地分支推送到远端develop
@@ -178,7 +178,7 @@ git push origin HEAD:develop
 
 场景：文件夹下的文件是程序生成的文件，不需要加入版本管理，但是程序写的不鲁棒，不能自动创建文件夹，需要该文件夹存在。
 
-理论上来将是不行的，因为git管理的是文件，如果该文件夹下没有文件，则不会加入管理。  
+理论上来将是不行的，因为git管理的是文件，如果该文件夹下没有文件，则不会加入管理。
 因此解决方法：
 1. 改善程序，能自动生成该目录
 2. 在该文件夹下添加一个隐藏文件`.gitignore`，这样就能加入版本管理了
@@ -196,7 +196,7 @@ Your branch is ahead of 'origin/develop' by 1 commit.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 ```
-本地代码已经push，没有做任何修改，为什么会ahead of ?  
+本地代码已经push，没有做任何修改，为什么会ahead of ?
 
 因为你push之后没有更新远端状态，执行`git pull --rebase`操作后，将远端情况更新到本地就没问题了。
 ``` bash
@@ -219,7 +219,7 @@ git diff master origin/master
 
 建立在`remote_branch`的基础上建立`local_new_branch`分支。
 
-创建分支后还是要手动`git pull`一下，因为这是在本地暂存的`remote_branch`上建立的分支，这时远端的改变并没有更新到本地。
+创建分支后还是要手动`git pull`一下，因为这是在**本地暂存的`remote_branch`上建立的分支**, 只是建立了`upstream`，并没有从远端拉取最新代码，这时远端的改变并没有更新到本地。
 
 ``` bash
 $ git checkout -b <local_new_branch> origin/<remote_branch>
@@ -228,7 +228,10 @@ $ git pull
 
 我之前还有一种做法是：在本地develop分支上`git pull`获取远端develop分支上的最新状态，然后`git checkout -b <local_new_branch>`。
 
-第一种方法能够建立upstream，通过`git branch --vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
+第一种方法能够建立upstream，通过`git branch -vv`能看到新的本地分支的upstream branch。如果没有upstream，则不能push？需要--set-upstream
+
+-vv verbose信息  When in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if any). If given twice, print the name of the upstream branch, as well (see also git remote show <remote>).
+
 
 [How do I check out a remote Git branch?](https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch)
 
@@ -245,3 +248,42 @@ $ git config core.filemode false
 ```
 
 [How do I remove files saying “old mode 100755 new mode 100644” from unstaged changes in Git?](https://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha)
+
+
+## 父节点不同了
+
+``` bash
+$ git pull --rebase
+First, rewinding head to replay your work on top of it...
+Applying: framework of ibeo sub-class 0 error
+Applying: migrate ibeo code from ap2
+
+$ git pull
+Already up-to-date.
+
+$ git status
+On branch L4UPS-51
+Your branch is ahead of 'origin/develop' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+
+
+$ git push origin HEAD:L4UPS-51
+To git@gitlab.csvw.com:SVW_ER_DEV/AP/urban-pilot/vehicle/research-platform.git
+ ! [rejected]        HEAD -> L4UPS-51 (non-fast-forward)
+error: failed to push some refs to 'git@gitlab.csvw.com:SVW_ER_DEV/AP/urban-pilot/vehicle/research-platform.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+```
+
+--rebase会将自己的提交放到最后面
+
+解决方法：
+``` bash
+$ git push -f origin HEAD:L4UPS-51
+```
+
+https://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge

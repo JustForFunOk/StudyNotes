@@ -9,6 +9,28 @@
 
 ### 列表list
 
+#### 列表长度
+``` python
+length = len(list_example)
+```
+
+#### 遍历列表中每一个元素
+
+``` python
+list = [1, 3, 5, 7, 9] 
+ 
+for i in list: 
+    print(i) 
+```
+
+#### 列表末尾添加元素
+``` python
+my_list = ['geeks', 'for'] 
+my_list.append('geeks') 
+print my_list  # ['geeks', 'for', 'geeks']
+```
+
+
 
 ### 字典dict
 
@@ -355,3 +377,14 @@ class CAMERA_MODEL(Enum):  # 继承Enum类
 ```
 
 [Python中枚举的使用](https://blog.csdn.net/m0_38061927/article/details/76058133)
+
+
+### 注释中包含中文字符
+SyntaxError: Non-ASCII character '\xef' in file /home/sunjian/workspace/AP2.0/src/ui/obj_pos_vis/scripts/obj_pos_vis.py on line 12, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+``` python
+"""
+--- para
+id： given by user
+(time，x，y)
+"""
+```
