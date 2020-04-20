@@ -1,15 +1,15 @@
 # C++关键字 -- virtual（动多态）
 
-函数重载（overload）是静多态，在编译时就通过名字重整（name mangling）实现了。
+函数重载（function overloading）是静多态，在编译时就通过名字重整（name mangling）实现了。
 
-而函数重写（override）是动多态，使用`virtual`关键字来实现。
+而函数重写（function overriding）是动多态，使用`virtual`关键字来实现。
 
 ## 1. 动多态形成的条件
 
 1. 父类中有虚函数
 2. 子类中重写了父类的虚函数
 3. 将子类对象地址赋给父类指针，并发生虚函数的调用
-   
+
 ps: 子类中override函数的访问权限（public, protected, private）可以与父类不同.
 
 ## 2. 原理
