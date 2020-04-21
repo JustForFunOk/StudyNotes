@@ -13,6 +13,15 @@ $ git remote set-url <new_url>
 $ git remote -v
 ```
 
+## 查看本地仓库链接的远程仓库
+
+**`git remote -v`**
+
+查看本地仓库都链接到了哪些远程仓库。
+
+`-v`中v是verbose详细的。（参考自：[CSDN-git命令之git remote的用法](https://blog.csdn.net/wangjia55/article/details/8802490)）
+
+
 ## 本地remotes-tracking
 
 本地的remotes区域也保存了一份远端所有的分支,叫做`remote-tracking reference`，通过`git branch -a`可查看，`git fetch`时会将远端分支同步到该区域。
