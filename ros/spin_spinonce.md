@@ -61,6 +61,13 @@ while (should_continue)
 }
 ```
 
+## 几个问题
+
+### spin和spinOnce的必要性
+如果程序里没有和消息接收相关的（没有消息回调函数），是不是可以用while(ros::ok())代替spin(), spinOnce()也没必要用了？
+
+消息发布（.publish()）需要用到spin和spinOnce吗？
+
 
 ## reference
 1. https://www.cnblogs.com/liu-fa/p/5925381.html
