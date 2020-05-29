@@ -54,6 +54,35 @@ switch(flag)
 }
 ```
 
+## 没有break的case
+
+``` C++
+int x = 2;
+switch (x)
+{
+    case 1:
+        cout << "Choice is 1";
+        break;
+    case 2:
+        cout << "Choice is 2";
+        //break;  // 会继续无条件执行接下来的语句，直到遇见break
+    case 3:
+        cout << "Choice is 3";
+        break;
+    default:
+        cout << "Choice other than 1, 2 and 3";
+        break;
+}
+----------Output-----------
+Choice is 2Choice is 3
+```
+
+## switch case原理
+
+
+
+
 
 ## Reference
 1. [stack overflow -- Error: Jump to case label](https://stackoverflow.com/questions/5685471/error-jump-to-case-label)
+2. [Switch底层执行原理](https://blog.csdn.net/Abrazen_zz/article/details/79250450)

@@ -287,3 +287,18 @@ $ git push -f origin HEAD:L4UPS-51
 ```
 
 https://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge
+
+## 空分支
+
+创建一个空的全新的分支。如果仓库中已经有了提交，那么之后的分支都要base到之前的分支上，如何创建一个全新的啥都不包含的分支？
+
+`--orphan`
+
+``` bash
+$ git checkout --orphan dev2
+Switched to a new branch 'dev2'
+$ git reset # unstage all the files, you probably don't want to commit all of them
+$ git commit --allow-empty -m 'Initial empty commit'
+[dev2 (root-commit) a515c28] Initial empty commit
+```
+[How to create a new (and empty!) “root” branch?](https://stackoverflow.com/questions/15034390/how-to-create-a-new-and-empty-root-branch)

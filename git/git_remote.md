@@ -8,10 +8,16 @@
 # 查看目前链接
 $ git remote -v
 # 修改链接
-$ git remote set-url <new_url>
+# git remote set-url [--push] <name> <newurl> [<oldurl>]
+$ git remote set-url origin <new_url>
 # 验证修改
 $ git remote -v
 ```
+name一般设置为origin
+
+### 从http连接修改为ssh连接
+
+公钥配置好后还要修改remote的url，从`http:xxx`修改为`git@xxx`,使用`git remote set-url origin git@xxx`
 
 ## 查看本地仓库链接的远程仓库
 
