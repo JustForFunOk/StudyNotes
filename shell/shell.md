@@ -6,6 +6,7 @@
 ## 例子
 
 ### if
+
 `~/.profile`文件中有：
 ``` bash
 # include .bashrc if it exists
@@ -24,3 +25,20 @@ fi
 export PATH=$PATH:/
 ```
 通过`help export`来查看使用帮助，为shell变量设置export属性。
+
+### if-elseif
+
+``` bash
+if [ $a == $b ]
+then
+    echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+    echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+    echo "a is less than b"
+else
+    echo "None of the condition met"
+fi
+```

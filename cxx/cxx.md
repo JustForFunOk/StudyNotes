@@ -86,3 +86,7 @@ add_compile_options(-std=c++11)
 
 
 ```
+
+## 闭包
+
+闭包存在的意义
