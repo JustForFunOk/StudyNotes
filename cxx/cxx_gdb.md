@@ -124,3 +124,8 @@ Save breakpoint definitions as a script.
 ## step out
 
 
+## 查看调用栈
+
+`bt`
+
+backtrace

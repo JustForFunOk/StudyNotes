@@ -4,7 +4,9 @@
 1. [Git FAQ](https://git.wiki.kernel.org/index.php/Git_FAQ)
    上面有很多经典问题，可以过一遍
 
+2. [Git书籍Pro Git中文版](https://git-scm.com/book/zh/v2)
 
+## 目录
 
 > 本地仓库
 

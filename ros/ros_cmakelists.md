@@ -57,16 +57,16 @@ find_package(catkin REQUIRED COMPONENTS
 # catkin_python_setup()
 
 ```
-* cmake_minimum_required(VERSION 2.8.3)  
+* cmake_minimum_required(VERSION 2.8.3)
   CmakeLists.txt文件的第一句，不可少
-* project(testcmakelists)  
+* project(testcmakelists)
   指定工程名称，这里指定的名称会决定？？的名称
 * add_compile_options(-std=c++11)
-* find_package()  
-  指定  
+* find_package()
+  指定
   ROS中至少有find_package(catkin REQUIRED)
 
-  
+
 ``` cmake
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -195,6 +195,9 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+```
+
+``` cmake
 
 #############
 ## Install ##
@@ -237,7 +240,27 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+```
+程序依赖的`.so`文件安装到什么位置？
+``` cmake
+install(
+  DIRECTORY lib/
+  DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  FILES_MATCHING
+  PATTERN "*.so")
+```
+如CMakeLists.txt文件同级有lib目录，里面放置了该程序运行所需要的动态链接库，那么这些库安装到什么位置才能被程序加载到？
 
+Linux是到哪里搜索并加载动态链接库的？[Where do executables look for shared objects at runtime?](https://unix.stackexchange.com/questions/22926/where-do-executables-look-for-shared-objects-at-runtime)
+
+``` bash
+$ echo $LD_LIBRARY_PATH  # ./install/lib
+```
+所以将.so安装到`./install/lib`目录下，即`${CATKIN_PACKAGE_LIB_DESTINATION}`，其他文件夹的地方找不到。
+
+## Testing
+
+``` cmake
 #############
 ## Testing ##
 #############
