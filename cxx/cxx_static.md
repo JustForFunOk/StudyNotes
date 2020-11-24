@@ -14,7 +14,7 @@ C语言中
 
   储存位置
 
-* 修饰函数  
+* 修饰函数
 
   ``` c
   static void MX_TIM2_Init(void)
@@ -28,9 +28,9 @@ C语言中
 
 C++类中
 
-1. 类的静态成员(变量和方法)属于类本身  
+1. 类的静态成员(变量和方法)属于类本身
    在类加载的时候就会分配内存，当对象不存在时可以通过类来访问
-2. 类的非静态成员（变量和方法）属于类的对象  
+2. 类的非静态成员（变量和方法）属于类的对象
    所以只有在类的对象产生（创建类的实例）时才会分配内存，然后通过类的对象（实例）去访问。
 
 * static修饰数据成员
@@ -47,7 +47,7 @@ C++类中
 
   static修饰成员函数，作用就是管理静态成员，以对外提供接口。
 
-  statci修饰的成员函数属于类本身。
+  static修饰的成员函数属于类本身。
 
   static成员函数只能访问static数据成员以及成员函数。因为非static成员函数在调用时this指针被当作参数传入，而static成员函数属于类，不属于对象，没有this指针。
 
@@ -61,7 +61,7 @@ public:
     {
 //      x = 222; //static成员函数不能访问非static数据成员以及成员函数
         return privateShare;
-    }    
+    }
 private:
     static int privateShare; // 私有成员只能通过公有成员函数来访问，static也不例外
 }；
@@ -80,13 +80,13 @@ int main
 	cout << sizeof(A) << endl;  // 8 // static成员类外储存，求类大小时不包含在内
     cout << sizeof(a1) << endl; // 8
     cout << sizeof(a2) << endl; // 8
-	
+
 	// static数据成员在族类对象间数据共享
 	a1.share = 200;
 	cout << a2.share << endl; // 200
-	
-	
-	
+
+
+
 }
 ```
 

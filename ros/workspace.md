@@ -17,13 +17,29 @@ $ echo $ROS_PACKAGE_PATH  # 检查ROS包路径，添加成功则输出：/home/<
 
 ## 工作空间目录结构
 
-`catkin_ws` 工作空间  
-&emsp;&emsp;├──`build` 存放cmake和catkin缓存和中间文件  
-&emsp;&emsp;├──`devel` 存放目标文件(头文件、可执行文件、动、静态链接库)  
-&emsp;&emsp;└──`src` 存放源文件  
-&emsp;&emsp;&emsp;&emsp;├──`package1` 每个[package的目录结构](#package目录结构)     
-&emsp;&emsp;&emsp;&emsp;├──`package2`  
-&emsp;&emsp;&emsp;&emsp;├──`folder_name` 因为catkin**会在src目录下递归的查找每一个package**  
-&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;├──`package3` 所以可以将package放置在子文件夹下  
-&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;└──`package4`  
-&emsp;&emsp;&emsp;&emsp;└──`package#` 
+`catkin_ws` 工作空间
+&emsp;&emsp;├──`build` 存放cmake和catkin缓存和中间文件
+&emsp;&emsp;├──`devel` 存放目标文件(头文件、可执行文件、动、静态链接库)
+&emsp;&emsp;└──`src` 存放源文件
+&emsp;&emsp;&emsp;&emsp;├──`package1` 每个[package的目录结构](#package目录结构)
+&emsp;&emsp;&emsp;&emsp;├──`package2`
+&emsp;&emsp;&emsp;&emsp;├──`folder_name` 因为catkin**会在src目录下递归的查找每一个package**
+&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;├──`package3` 所以可以将package放置在子文件夹下
+&emsp;&emsp;&emsp;&emsp;│&emsp;&emsp;└──`package4`
+&emsp;&emsp;&emsp;&emsp;└──`package#`
+
+## 多个workspace
+
+source ./devel/setup.bash会覆盖而不是追加之前的路径.
+
+所以在~/.bashrc中
+``` shell
+source ~/catkin_ws/devel/setup.bash
+source ~/catkin_ws1/devel/setup.bash
+```
+最终只会source catkin_ws1的workspace.
+
+若存在多个workspace,需要在使用前主动source目标workspace的setup.bash
+
+### 参考
+* [Sourcing from multiple workspaces](https://answers.ros.org/question/205976/sourcing-from-multiple-workspaces/)

@@ -2,6 +2,8 @@
 
 ## 格式
 
+### /的用法
+
 |用法|含义|
 |:---:|:---:|
 |target/|忽略所有的`target`文件夹（即使target文件夹位于子文件夹下）|
@@ -16,10 +18,17 @@
 [Using .gitignore the Right Way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)
 
 
+### []的用法
+
+单个字符的匹配列表
+
+[Dd]ebug/ Debug/和debug/都会被忽略
+[0-9] 匹配0到9所有的数字
+[A-Z] 匹配A到Z所有的大写字母
 
 ## 忽略已经追踪的文件
 
-如果对于`file1`已经执行过`git add <file1>`，那么即使后续将`file1`加入到`.gitignore`文件内，git仍不会忽略该文件。  
+如果对于`file1`已经执行过`git add <file1>`，那么即使后续将`file1`加入到`.gitignore`文件内，git仍不会忽略该文件。
 
 在这种情况下，必须先取消跟踪该文件
 
