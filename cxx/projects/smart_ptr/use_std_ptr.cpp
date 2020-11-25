@@ -32,17 +32,21 @@ void func(shared_ptr<Rectangle> rect_ptr)
 
 int main()
 {
-    shared_ptr<Rectangle> rect_ptr(new Rectangle(6, 6));
-    cout << rect_ptr->getArea() << endl;
+    // sj::shared_ptr<Rectangle> rect_ptr;
+    // cout << rect_ptr.use_count() << endl;  // return 0
 
-    func(rect_ptr);
+    shared_ptr<Rectangle> rect_ptr1(new Rectangle(6, 6));
+    cout << rect_ptr1->getArea() << endl;
+    cout << rect_ptr1.use_count() << endl;  // return 1
 
-    shared_ptr<Rectangle> rect_ptr2;
-    rect_ptr2 = rect_ptr;
-    cout << rect_ptr2->getArea() << endl;
+    func(rect_ptr1);
 
-    cout << rect_ptr.use_count() << endl;
-    cout << rect_ptr2.use_count() << endl;
+    // shared_ptr<Rectangle> rect_ptr2;
+    // rect_ptr2 = rect_ptr;
+    // cout << rect_ptr2->getArea() << endl;
+
+    // cout << rect_ptr.use_count() << endl;
+    // cout << rect_ptr2.use_count() << endl;
 
     return 0;
 }

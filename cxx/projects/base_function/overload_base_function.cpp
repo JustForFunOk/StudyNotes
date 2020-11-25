@@ -38,7 +38,13 @@ int main()
     Rectangle rect1(6, 6);
     Rectangle rect2(rect1);
     Rectangle rect3 = rect1;
+
     Rectangle rect4(8, 8);
     rect3 = rect4;
+    rect3.operator=(rect4);
+
+    (rect3 = rect4) = rect1;
+    rect3.operator=(rect4).operator=(rect1);
+
     return 0;
 }
