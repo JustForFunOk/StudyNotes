@@ -28,6 +28,19 @@ public:
         width = _rect.width;
         return *this;
     }
+    Rectangle(Rectangle&& _rect) noexcept
+    {
+        cout << "move constructor" << endl;
+        length = _rect.length;
+        width = _rect.width;
+    }
+    Rectangle& operator=(Rectangle&& _rect) noexcept
+    {
+        cout << "move assign operator" << endl;
+        length = _rect.length;
+        width = _rect.width;
+        return * this;
+    }
 private:
     int length;
     int width;
@@ -45,6 +58,9 @@ int main()
 
     (rect3 = rect4) = rect1;
     rect3.operator=(rect4).operator=(rect1);
+
+    Rectangle rect5(move(rect1));
+    rect5 = move(rect4);
 
     return 0;
 }
