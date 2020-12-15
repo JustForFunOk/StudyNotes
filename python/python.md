@@ -17,16 +17,16 @@ length = len(list_example)
 #### 遍历列表中每一个元素
 
 ``` python
-list = [1, 3, 5, 7, 9] 
- 
-for i in list: 
-    print(i) 
+list = [1, 3, 5, 7, 9]
+
+for i in list:
+    print(i)
 ```
 
 #### 列表末尾添加元素
 ``` python
-my_list = ['geeks', 'for'] 
-my_list.append('geeks') 
+my_list = ['geeks', 'for']
+my_list.append('geeks')
 print my_list  # ['geeks', 'for', 'geeks']
 ```
 
@@ -43,7 +43,7 @@ print my_list  # ['geeks', 'for', 'geeks']
 
 ## 查找字符串中所有的数字
 
-参考：[How to extract numbers from a string in Python?](https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python)  
+参考：[How to extract numbers from a string in Python?](https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python)
 [Python 正则表达式](https://www.runoob.com/python/python-reg-expressions.html)
 
 ## 终止程序运行
@@ -72,7 +72,7 @@ print my_list  # ['geeks', 'for', 'geeks']
 
 ## 多个print内容打印到一行
 
-python2  
+python2
 ``` python
 print "hello",
 print "world"
@@ -86,12 +86,26 @@ print("world")
 ## 对list中字符串进行排序
 
 ``` python
-string_list.sort() 
+string_list.sort()
 ```
 参考：[Python | How to sort a list of strings](https://www.geeksforgeeks.org/python-how-to-sort-a-list-of-strings/)
 
 
 ## 条件表达式
+
+### if else
+``` python
+if name == 'hello' :
+    # xxx
+else :
+    # xxx
+```
+
+### 三元表达式
+
+``` python
+smaller = x if x<y else y
+```
 
 
 ## 查找字符串在文件中的位置并返回行号
@@ -164,7 +178,7 @@ a = None
 
 ## 删除字符串中的字符
 
-先裁剪再拼接  
+先裁剪再拼接
 
 ``` python
 newstr = oldstr[:4] + oldstr[5:]
@@ -186,7 +200,7 @@ print(y)  # 'Pear'
 
 ## 单引号和双引号有什么区别
 
-不像C中，`‘’`用来表示一个字符，`“”`用来表示字符串  
+不像C中，`‘’`用来表示一个字符，`“”`用来表示字符串
 Python中两者没有什么区别，通用，但是他们有如下额外用途：
 ``` python
 print('he"l"lo')  # he"l"lo
@@ -357,13 +371,13 @@ $ sudo pip install <python-package>
 0 0 0 0.247953 0.342936 150 181 151 181 150 182 151 182
 ```
 ``` python
-list = str.split() 
+list = str.split()
 ```
 [How to split a string into a list?](https://stackoverflow.com/questions/743806/how-to-split-a-string-into-a-list)
 
 按照逗号分离
 ``` python
-list = str.split(",") 
+list = str.split(",")
 ```
 
 ## 枚举

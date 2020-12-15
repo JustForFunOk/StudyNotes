@@ -6,13 +6,16 @@
 
 ## 工具
 
-* [yapf](https://github.com/google/yapf/)  
+* [yapf](https://github.com/google/yapf/)
   统一格式的工具，类似与clang-format。只是修改格式，不会做语法等错误检查。
 
 
 ### Shebang #!
 
 #!先用于帮助内核找到Python解释器, 但是在导入模块时, 将会被忽略. 因此只有被直接执行的文件中才有必要加入#!.
+``` shell
+#! /usr/bin/env python
+```
 
 ### [注释](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)
 
@@ -83,7 +86,7 @@ class SampleClass(object):
 ```
 
 #### 块注释和行注释
-* 对于复杂的操作, 应该在其操作开始前写上若干行注释. 
+* 对于复杂的操作, 应该在其操作开始前写上若干行注释.
 * 对于不是一目了然的代码, 应在其行尾添加注释.
 ``` python
 
@@ -100,7 +103,7 @@ if i & (i-1) == 0:        # True if i is 0 or a power of 2.
 |Type|Public|Internal|
 |:--:|:--:|:--:|
 |Modules |lower_with_under	|_lower_with_under|
-|Packages|lower_with_under||	 
+|Packages|lower_with_under||
 |Classes |CapWords	|_CapWords|
 |Exceptions	|CapWords	| |
 |Functions	|lower_with_under()|_lower_with_under()|
@@ -108,5 +111,5 @@ if i & (i-1) == 0:        # True if i is 0 or a power of 2.
 |Global/Class Variables|lower_with_under|_lower_with_under|
 |Instance Variables|lower_with_under|_lower_with_under (protected) </br> __lower_with_under (private)|
 |Method Names|lower_with_under()	|_lower_with_under() (protected) </br> __lower_with_under() (private)
-|Function/Method Parameters	|lower_with_under| 
-|Local Variables|	lower_with_under|	 
+|Function/Method Parameters	|lower_with_under|
+|Local Variables|	lower_with_under|
