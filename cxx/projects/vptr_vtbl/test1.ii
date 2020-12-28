@@ -1,0 +1,28 @@
+# 1 "test1.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "test1.cpp"
+class Base
+{
+public:
+    Base(int i){}
+    virtual ~Base(){}
+    virtual void func(){}
+};
+
+class Derived : public Base
+{
+public:
+    Derived() : Base(1){}
+    virtual ~Derived(){}
+    virtual void func(){}
+};
+
+int main()
+{
+    Base a(1);
+    Derived b;
+    return 0;
+}
