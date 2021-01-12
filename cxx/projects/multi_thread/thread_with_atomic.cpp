@@ -3,10 +3,12 @@
 #include <climits>
 #include <chrono>
 #include <functional>
+#include <atomic>
 
 using namespace std;
 
-static int g_i;
+// static int g_i;
+static atomic<int> g_i(0);
 
 void increase(int cnt)
 {
